@@ -1,0 +1,196 @@
+.main-7 {
+    padding: 100px 39px 0 40px;
+
+    .main-7-heading {
+        margin: 0;
+        padding-bottom: 40px;
+        font-size: 28px;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .main-7-gallery {
+        position: relative;
+        overflow: hidden;
+
+        .gallery-viewport {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .gallery-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .gallery-slide {
+            min-width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .gallery-slide {
+            .row {
+                display: flex;
+                flex-direction: row;
+                gap: 20px;
+                height: 300px;
+
+                img {
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 8px;
+                }
+
+                &:first-of-type img {
+                    width: calc(16.666% - 17px); 
+                }
+
+
+                &:last-of-type img {
+                    width: calc(25% - 15px); 
+                }
+            }
+        }
+
+        .btn-arrow {
+            position: relative;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            gap: 10px;
+
+            .dots {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                gap: 8px;
+            }
+
+            .dot {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                border: 1px solid #D94540;
+                background: white;
+                transition: background-color 0.3s ease;
+                cursor: pointer;
+
+                &.active {
+                    background: #D94540;
+                }
+            }
+
+            .btn {
+                padding: 8px 28px;
+                border-radius: 30px;
+                border: 1px solid #D94540;
+                background: white;
+                cursor: pointer;
+                transition: all 0.3s ease;
+
+                &:hover:not(.disabled) {
+                    background: #D94540;
+                    .arrow img {
+                        filter: brightness(0) invert(1);
+                    }
+                }
+
+                &.disabled {
+                    border-color: #D9454099;
+                    pointer-events: none;
+                    opacity: 0.6;
+                    cursor: not-allowed;
+                }
+            }
+
+            .one-left {
+                transform: rotate(180deg); 
+            }
+
+            .arrow {
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .btn-basic {
+        text-align: center;
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 900px) {
+    .main-7-gallery {
+        .gallery-slide {
+            .row {
+
+                &:first-of-type img:nth-child(6) {
+                    display: none;
+                }
+
+                &:last-of-type img:nth-child(4) {
+                    display: none;
+                }
+
+                &:first-of-type img {
+                    width: calc(20% - 16px);
+                }
+                &:last-of-type img {
+                    width: calc(33.333% - 14px); 
+                }
+            }
+        }
+    }
+}
+
+
+
+@media (max-width: 500px) {
+    .main-7 {
+        padding: 50px 20px 0 20px; 
+    }
+
+    .main-7-gallery {
+
+        .btn-arrow {
+            display: none !important;
+        }
+
+        .gallery-track {
+            display: block;
+            transform: none !important; 
+        }
+
+        .gallery-slide {
+            display: block; 
+            min-width: auto; 
+
+            &:not(:first-of-type) {
+                display: none;
+            }
+        }
+
+        .gallery-slide:first-of-type {
+            .row {
+                display: block; 
+                height: auto; 
+
+                img {
+                    display: block; 
+                    width: 100% !important; 
+                    height: 250px; 
+                    margin-bottom: 15px; 
+                    border-radius: 8px;
+                }
+            }
+        }
+    }
+}
+

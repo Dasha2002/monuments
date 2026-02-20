@@ -1,0 +1,171 @@
+.main-5 {
+    padding: 100px 40px 0;
+
+    .main-5-heading {
+        text-align: center;
+        margin: 0;
+        font-size: 28px;
+        font-weight: 700;
+        padding-bottom: 40px;
+    }
+
+    .block-inf-main-5 {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+
+        .block-one {
+            display: flex;
+            flex-direction: column;
+
+            .block {
+                position: relative; 
+                border-top: 1px solid #F2F2F2;
+            }
+
+            .block-header {
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                padding: 6px 0;
+                border-bottom: 1px solid #F2F2F2;
+
+                .number {
+                    flex-shrink: 0;
+                }
+
+                h3 {
+                    padding-left: 15px;
+                    margin: 0;
+                    font-size: 20px;
+                    font-weight: 600;
+                }
+
+                .btn-arrow {
+                    position: absolute;
+                    right: 0;
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+
+                    .arrow {
+                        transition: transform 0.3s ease;
+                    }
+                }
+            }
+            .block-content {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 100%;
+                background-color: white;
+                padding: 20px;
+                padding-top: 0;
+                padding-left: 60px; 
+                opacity: 0;
+                box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+                visibility: hidden;
+                transform: translateY(-10px);
+                transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+
+                p {
+                    margin: 0;
+                    font-size: 20px;
+                }
+            }
+
+            .block.active {
+                z-index: 10; 
+                .block-header {
+                    border-bottom: none;
+                }
+
+                .block-content {
+                    opacity: 1;
+                    visibility: visible;
+                    transform: translateY(0);
+                }
+
+                .arrow {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+
+        .block-two {
+            position: relative;
+            background-color: #F2F2F2;
+            border-radius: 20px;
+            min-height: 100%;
+
+            img {
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                max-width: 100%;
+                height: auto;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .main-5 {
+        padding: 40px 20px 0;
+
+        .block-inf-main-5 {
+            .block-one {
+                .block {
+                    .block-header {
+                        h3 {
+                            padding-right: 50px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .main-5 {
+        padding: 60px 0 0;
+        .main-5-heading {
+            font-size: 16px;
+            padding-bottom: 20px;
+        }
+        .block-inf-main-5 {
+            display: flex;
+            flex-direction: column;
+            gap: 23px;
+            .block-one {
+                margin-left: 10px;
+                margin-right: 10px;
+                .block {
+                    .block-header {
+                        padding: 6px 0;
+                        h3 {
+                            font-size: 12px;
+                            font-weight: 600;
+                        }
+                    }
+                    .block-content {
+                        p {
+                            font-size: 11px;
+                        }
+                    }
+                }
+            }
+
+            .block-two {
+                border-radius: 0;
+                img {
+                    position: relative;
+                    height: 247px;
+                }
+            }
+        }
+    }
+}

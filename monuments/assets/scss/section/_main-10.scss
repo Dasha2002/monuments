@@ -1,0 +1,96 @@
+.main-10 {
+    padding: 100px 40px 0;
+    .main-10-block {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        align-items: center; 
+
+        .block-text {
+            height: 250px;
+            background: linear-gradient(164.32deg, #FCFCFC 0.74%, #F2F2F2 99.04%);
+            border-radius: 20px;
+            padding: 40px;
+
+            .block-one {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding-bottom: 100px;
+                gap: 100px;
+                h2 {
+                    margin: 0;
+                    font-size: 30px;
+                    font-weight: 700;
+                    color: #D94540;
+                }
+                .btn-basic {
+                    white-space: nowrap;
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                }
+            }
+
+            p {
+                margin: 0;
+                font-size: 16px;
+                font-weight: 600;
+            }
+        }
+        
+        .img {
+            img {
+                max-width: 100%;  
+                height: auto;     
+                display: block;   
+                border-radius: 20px; 
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .main-10 {
+        .main-10-block {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .main-10 {
+        padding: 60px 10px 0;
+        .main-10-block {
+            gap: 10px;
+            .block-text {
+                height: auto;
+                padding: 10px;
+                .block-one {
+                    gap: 28px;
+                    padding-bottom: 32px;
+                    h2 {
+                        font-size: 16px;
+                    }
+                    .btn-basic {
+                        font-size: 12px;
+                        gap: 0;
+                        padding: 10px 8px;
+                        img {
+                            width: 15px;
+                            height: 15px;
+                        }
+                    }
+                }
+
+                .text {
+                    font-size: 10px;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}

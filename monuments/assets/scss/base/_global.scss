@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+html, body {
+    padding: 0;
+    margin: 0;
+    font-family: "Raleway", sans-serif;
+    background-color: #FFFFFF;
+    overflow-x: hidden;
+    font-weight: 500;
+}
+
+button, input {
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+}
+
+.btn-basic {
+    color: #FFFFFF;
+    background-color: #D94540;
+    padding: 13.5px 20px;
+    border-radius: 10px;
+    border: 0;
+    font-size: 18px;
+}

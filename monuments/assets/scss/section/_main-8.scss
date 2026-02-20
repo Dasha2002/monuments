@@ -1,0 +1,218 @@
+.main-8 {
+    padding: 100px 40px 0;
+
+    .main-8-heading {
+        margin: 0;
+        font-size: 28px;
+        font-weight: 700;
+        padding-bottom: 40px;
+        text-align: center;
+    }
+
+    .reviews-viewport {
+        width: calc(3 * 440px + 2 * 20px); 
+        max-width: 100%;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    .reviews-track {
+        display: grid;
+        grid-auto-columns: 440px;
+        grid-auto-flow: column;
+        grid-template-rows: 1fr 1fr;
+        gap: 20px;
+        width: max-content;        
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .review {
+        box-sizing: border-box; 
+        padding: 30px;
+        border: 1px solid #C6C6C6;
+        border-radius: 20px;
+
+        .img-review {
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+            align-items: center;
+        }
+        h3 {
+            margin: 0;
+            padding: 15px 0 10px;
+            font-size: 20px;
+            font-weight: 700;
+            color: #D94540;
+        }
+        p {
+            margin: 0;
+            padding-bottom: 36px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .text-btn {
+            border: none;
+            background: none;
+            color: #D94540;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+
+    .btn-arrow-main-8 {
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        gap: 10px;
+        max-width: calc(3 * 440px + 2 * 20px);
+        margin: 0 auto;
+
+        .dots {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 1px solid #D94540;
+            background: white;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+
+            &.active {
+                background: #D94540;
+            }
+        }
+
+        .btn {
+            padding: 8px 28px;
+            border-radius: 30px;
+            border: 1px solid #D94540;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            &:hover:not(.disabled) {
+                background: #D94540;
+                .arrow img {
+                    filter: brightness(0) invert(1);
+                }
+            }
+
+            &.disabled {
+                border-color: #D9454099;
+                pointer-events: none;
+                opacity: 0.6;
+                cursor: not-allowed;
+            }
+        }
+
+        .one-left {
+            transform: rotate(180deg); 
+        }
+
+        .arrow {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+    }
+
+    .btn-basic {
+        text-align: center;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .main-8 {
+        padding: 100px 30px 0;
+        .reviews-viewport {
+            .reviews-track {
+                grid-template-rows: 1fr 1fr 1fr;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .main-8 {
+        padding: 60px 10px 0;
+
+        .main-8-heading {
+            font-size: 16px;
+            padding-bottom: 20px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .reviews-viewport {
+            width: 100%;
+            overflow: visible; 
+        }
+
+        .reviews-track {
+            display: flex;
+            flex-direction: column; 
+            gap: 5px; 
+            width: 100%; 
+
+            .review:nth-child(n + 5) {
+                display: none;
+            }
+        }
+
+        .reviews-track.show-all-reviews .review {
+            display: block; 
+        }
+
+        .review {
+            width: 100%; 
+            padding: 20px;
+            box-sizing: border-box;
+
+            .img-review {
+                height: 30px;
+                gap: 4px;
+                img {
+                    height: 30px;
+                }
+                .star {
+                    height: 15px;
+                }
+            }
+            h3 {
+                font-size: 16px;
+                padding-bottom: 10px;
+            }
+            p {
+                font-size: 12px;
+                padding-bottom: 10px;
+            }
+            .text-btn {
+                font-size: 12px;
+            }
+        }
+
+        .btn-arrow-main-8 {
+            display: none !important;
+        }
+
+        .btn-basic {
+            margin-top: 10px;
+            font-weight: 700;
+            font-size: 12px;
+            padding: 10px 0 12px 0;
+        }
+    }
+}
