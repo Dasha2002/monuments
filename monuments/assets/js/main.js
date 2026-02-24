@@ -1,3 +1,30 @@
+
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+    const mobileMenuClose = document.querySelector('.mobile-menu-close');
+    
+
+    mobileMenuBtn.addEventListener('click', function() {
+        mobileMenuOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden'; 
+    });
+    
+    mobileMenuClose.addEventListener('click', function() {
+        mobileMenuOverlay.classList.remove('active');
+        document.body.style.overflow = ''; 
+    });
+    
+    const menuLinks = mobileMenuOverlay.querySelectorAll('a');
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+});
+
+
 // Карусель - свайпер для главной страницы (после header)
 document.addEventListener('DOMContentLoaded', function () {
     const swiper = new Swiper('.mySwiper', {
@@ -112,53 +139,79 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    const track = document.querySelector('.gallery-track');
-    const slides = document.querySelectorAll('.gallery-slide');
-    const dots = document.querySelectorAll('.dot');
-    const leftBtn = document.querySelector('.one-left');
-    const rightBtn = document.querySelector('.arrow.right').parentElement; 
-
-    if (!track || slides.length === 0 || dots.length === 0 || !leftBtn || !rightBtn) {
-        console.error("Ошибка: не найдены необходимые элементы для слайдера.");
+    const isMobile = window.innerWidth <= 500;
+    
+    if (isMobile) {
         return;
     }
 
-    let currentSlide = 0;
-    const totalSlides = slides.length;
+    const swiper = new Swiper('.gallery-swiper', {
 
-    function updateSlider() {
-        track.style.transform = `translateX(-${currentSlide * 100}%)`;
+        slidesPerView: 1,
+        spaceBetween: 0,
+        loop: false,
+
+        speed: 500,
+
+        allowTouchMove: true,
+        
+        navigation: {
+            nextEl: '.swiper-button-next', 
+            prevEl: '.swiper-button-prev', 
+        },
+
+        pagination: {
+            el: '.swiper-pagination', 
+        },
+        
+        on: {
+            slideChange: function () {
+                updateCustomUI(this.activeIndex);
+            },
+        },
+    });
+
+
+    const dots = document.querySelectorAll('.dot');
+    const prevBtn = document.getElementById('gallery-prev');
+    const nextBtn = document.getElementById('gallery-next');
+
+
+    function updateCustomUI(activeIndex) {
 
         dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentSlide);
+            dot.classList.toggle('active', index === activeIndex);
+            dot.classList.toggle('swiper-pagination-bullet-active', index === activeIndex); 
         });
 
-        leftBtn.classList.toggle('disabled', currentSlide === 0);
-        rightBtn.classList.toggle('disabled', currentSlide === totalSlides - 1);
+        if (prevBtn) prevBtn.classList.toggle('disabled', activeIndex === 0);
+        if (nextBtn) nextBtn.classList.toggle('disabled', activeIndex === dots.length - 1);
     }
 
-    rightBtn.addEventListener('click', () => {
-        if (currentSlide < totalSlides - 1) {
-            currentSlide++;
-            updateSlider();
-        }
-    });
 
-    leftBtn.addEventListener('click', () => {
-        if (currentSlide > 0) {
-            currentSlide--;
-            updateSlider();
-        }
-    });
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            if (!prevBtn.classList.contains('disabled')) {
+                swiper.slidePrev();
+            }
+        });
+    }
 
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            if (!nextBtn.classList.contains('disabled')) {
+                swiper.slideNext();
+            }
+        });
+    }
+    
     dots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
-            currentSlide = index;
-            updateSlider();
+            swiper.slideTo(index);
         });
     });
 
-    updateSlider();
+    updateCustomUI(0);
 });
 
 

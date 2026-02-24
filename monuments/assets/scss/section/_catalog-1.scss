@@ -1,0 +1,31 @@
+.catalog-1 {
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+    .text-catalog {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 600;
+        color: #000000;
+        text-decoration: none;
+    }
+    .text-catalog-two {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 600;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .catalog-1 {
+        padding: 20px 10px 10px;
+        .text-catalog {
+            font-size: 10px;
+        }
+        .text-catalog-two {
+            font-size: 10px;
+        }
+    }
+}

@@ -16,7 +16,7 @@
         overflow: hidden;
     }
     .reviews-track {
-        display: grid;
+        display: grid !important;
         grid-auto-columns: 440px;
         grid-auto-flow: column;
         grid-template-rows: 1fr 1fr;
@@ -216,3 +216,4 @@
         }
     }
 }
+

@@ -1,0 +1,92 @@
+.main-11 {
+    width: 100%;
+    height: auto;
+    margin-top: 100px;
+    background: linear-gradient(164.32deg, #FCFCFC 0.74%, #F2F2F2 99.04%);
+    .main-11-heading {
+        margin: 0;
+        text-align: center;
+        padding: 40px 0 40px;
+        font-size: 28px;
+        font-weight: 700;
+    }
+    .main-11-block {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 40px 0;
+        .row {
+            .block {
+                padding: 20px;
+                border-radius: 10px;
+                background-color: #FFFFFF;
+                position: relative;
+                .img {
+                    width: 100%;
+                    img {
+                        width: 100%;
+                    }
+                }
+                h3 {
+                    font-size: 18px;
+                    font-weight: 600;
+                    color: #D94540;
+                    margin: 0;
+                    padding: 10px 0 10px;
+                }
+                p {
+                    margin: 0;
+                    font-size: 16px;
+                    font-weight: 600;
+                    padding-bottom: 30px;
+                }
+                a {
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: #D94540;
+                    margin: 0;
+                }
+            }
+        }
+        .one {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 20px;
+        }
+        .two {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .btn-basic {
+            cursor: pointer;
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .main-11 {
+        .main-11-block {
+            .row {
+                .block {
+                    h3 {
+                        font-size: 1.4vw;
+                    }
+                    p {
+                        font-size: 1.3vw;
+                    }
+                    a {
+                        font-size: 1.3vw;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .main-11 {
+        display: none;
+    }
+}

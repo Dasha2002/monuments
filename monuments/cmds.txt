@@ -1,0 +1,2 @@
+// Для компиляции scss
+sass --watch assets/scss:assets/css

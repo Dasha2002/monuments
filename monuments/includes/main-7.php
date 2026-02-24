@@ -2,77 +2,82 @@
     <h2 class="main-7-heading">Галерея с производства</h2>
     <div class="main-7-gallery">
         <div class="gallery-viewport">
-            <div class="gallery-track">
-                
-                <!-- СЛАЙД 1 -->
-                <div class="gallery-slide">
-                    <div class="row one">
-                        <img src="assets/img/2025-12-02_15-02-59 2.png">
-                        <img src="assets/img/Group 1526.png">
-                        <img src="assets/img/2025-12-02_15-02-59 4.png">
-                        <img src="assets/img/2025-12-02_15-02-59 5.png">
-                        <img src="assets/img/Group 1527 (1).png">
-                        <img src="assets/img/2025-12-02_15-02-59 11.png">
+            <!-- Основной контейнер Swiper. Добавляем класс .swiper -->
+            <div class="swiper gallery-swiper">
+                <!-- Обертка для слайдов. Добавляем класс .swiper-wrapper и оставляем ваш .gallery-track -->
+                <div class="swiper-wrapper gallery-track">
+                    
+                    <!-- СЛАЙД 1 -->
+                    <!-- Каждый слайд теперь имеет .swiper-slide и ваш .gallery-slide -->
+                    <div class="swiper-slide gallery-slide">
+                        <div class="row one">
+                            <img src="assets/img/2025-12-02_15-02-59 2.png">
+                            <img src="assets/img/Group 1526.png">
+                            <img src="assets/img/2025-12-02_15-02-59 4.png">
+                            <img src="assets/img/2025-12-02_15-02-59 5.png">
+                            <img src="assets/img/Group 1527 (1).png">
+                            <img src="assets/img/2025-12-02_15-02-59 11.png">
+                        </div>
+                        <div class="row">
+                            <img src="assets/img/Group 1523.png">
+                            <img src="assets/img/2025-12-02_15-02-59 10.png">
+                            <img src="assets/img/2025-12-02_15-02-59 12.png">
+                            <img src="assets/img/Group 1528.png">
+                        </div>
                     </div>
-                    <div class="row">
-                        <img src="assets/img/Group 1523.png">
-                        <img src="assets/img/2025-12-02_15-02-59 10.png">
-                        <img src="assets/img/2025-12-02_15-02-59 12.png">
-                        <img src="assets/img/Group 1528.png">
-                    </div>
-                </div>
 
-                <!-- СЛАЙД 2 -->
-                <div class="gallery-slide">
-                    <div class="row one">
-                        <img src="assets/img/2025-12-02_15-02-59 2.png">
-                        <img src="assets/img/Group 1526.png">
-                        <img src="assets/img/2025-12-02_15-02-59 4.png">
-                        <img src="assets/img/2025-12-02_15-02-59 5.png">
-                        <img src="assets/img/Group 1527 (1).png">
-                        <img src="assets/img/2025-12-02_15-02-59 11.png">
+                    <!-- СЛАЙД 2 -->
+                    <div class="swiper-slide gallery-slide">
+                        <div class="row one">
+                            <img src="assets/img/2025-12-02_15-02-59 2.png">
+                            <img src="assets/img/Group 1526.png">
+                            <img src="assets/img/2025-12-02_15-02-59 4.png">
+                            <img src="assets/img/2025-12-02_15-02-59 5.png">
+                            <img src="assets/img/Group 1527 (1).png">
+                            <img src="assets/img/2025-12-02_15-02-59 11.png">
+                        </div>
+                        <div class="row">
+                            <img src="assets/img/Group 1523.png">
+                            <img src="assets/img/2025-12-02_15-02-59 10.png">
+                            <img src="assets/img/2025-12-02_15-02-59 12.png">
+                            <img src="assets/img/Group 1528.png">
+                        </div>
                     </div>
-                    <div class="row">
-                        <img src="assets/img/Group 1523.png">
-                        <img src="assets/img/2025-12-02_15-02-59 10.png">
-                        <img src="assets/img/2025-12-02_15-02-59 12.png">
-                        <img src="assets/img/Group 1528.png">
-                    </div>
-                </div>
 
-                <!-- СЛАЙД 3 -->
-                <div class="gallery-slide">
-                    <div class="row one">
-                        
-                        <img src="assets/img/2025-12-02_15-02-59 2.png">
-                        <img src="assets/img/Group 1526.png">
-                        <img src="assets/img/2025-12-02_15-02-59 4.png">
-                        <img src="assets/img/2025-12-02_15-02-59 5.png">
-                        <img src="assets/img/Group 1527 (1).png">
-                        <img src="assets/img/2025-12-02_15-02-59 11.png">
+                    <!-- СЛАЙД 3 -->
+                    <div class="swiper-slide gallery-slide">
+                        <div class="row one">
+                            <img src="assets/img/2025-12-02_15-02-59 2.png">
+                            <img src="assets/img/Group 1526.png">
+                            <img src="assets/img/2025-12-02_15-02-59 4.png">
+                            <img src="assets/img/2025-12-02_15-02-59 5.png">
+                            <img src="assets/img/Group 1527 (1).png">
+                            <img src="assets/img/2025-12-02_15-02-59 11.png">
+                        </div>
+                        <div class="row">
+                            <img src="assets/img/Group 1523.png">
+                            <img src="assets/img/2025-12-02_15-02-59 10.png">
+                            <img src="assets/img/2025-12-02_15-02-59 12.png">
+                            <img src="assets/img/Group 1528.png">
+                        </div>
                     </div>
-                    <div class="row">
-                        
-                        <img src="assets/img/Group 1523.png">
-                        <img src="assets/img/2025-12-02_15-02-59 10.png">
-                        <img src="assets/img/2025-12-02_15-02-59 12.png">
-                        <img src="assets/img/Group 1528.png">
-                    </div>
-                </div>
 
+                </div>
             </div>
         </div>
         
         <div class="btn-arrow">
             <div class="dots">
-                <span class="dot active"></span>
+                <!-- Активный класс будет управляться JS -->
+                <span class="dot swiper-pagination-bullet-active"></span>
                 <span class="dot"></span>
                 <span class="dot"></span>
             </div>
-            <div class="btn one-left">
+            <!-- Добавляем ID для легкого доступа из JS -->
+            <div class="btn one-left" id="gallery-prev">
                 <button class="arrow left"><img src="assets/img/gravity-ui_arrow-left (1).svg"></button>
             </div>
-            <div class="btn">
+            <div class="btn" id="gallery-next">
                 <button class="arrow right"><img src="assets/img/gravity-ui_arrow-left (1).svg"></button>
             </div>
         </div>

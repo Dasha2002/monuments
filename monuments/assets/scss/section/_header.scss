@@ -150,6 +150,173 @@
     }
 }
 
+// Стили для мобильного меню
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    z-index: 1000;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+    display: none; // Изначально скрыто
+    
+    &.active {
+        transform: translateX(0);
+        display: block;
+    }
+    
+    .mobile-menu-container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: 25px 10px;
+        
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            
+            .logo {
+                img {
+                    width: 72.4px;
+                    height: 30px;
+                }
+            }
+            
+            .mobile-menu-close {
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 5px;
+                
+                img {
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+        }
+        
+        .mobile-menu-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            flex-grow: 1;
+            
+            .mobile-menu-nav {
+                ul {
+                    list-style: none;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                    
+                    li {
+                        a {
+                            font-size: 18px;
+                            color: #000000;
+                            text-decoration: none;
+                            font-weight: 500;
+                            
+                            &.activ {
+                                color: #D94540;
+                                font-weight: 600;
+                            }
+                        }
+                    }
+                }
+            }
+            
+            .mobile-menu-catalog {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                
+                .catalog-nav {
+                    background-color: #D94540;
+                    color: #ffffff;
+                    font-weight: 600;
+                    text-decoration: none;
+                    padding: 12px 20px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 4px;
+                    
+                    img {
+                        margin-left: 8px;
+                    }
+                }
+                
+                .catalog-menu {
+                    list-style: none;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+                    padding-left: 20px;
+                    
+                    li {
+                        a {
+                            font-size: 16px;
+                            text-decoration: none;
+                            color: #000000;
+                        }
+                    }
+                }
+            }
+            
+            .mobile-menu-contacts {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                margin-top: 20px;
+                
+                .phone {
+                    font-size: 18px;
+                    color: #D94540;
+                    text-decoration: none;
+                    font-weight: 600;
+                }
+                
+                .phone-prompt {
+                    font-size: 14px;
+                    font-weight: 500;
+                }
+            }
+            
+            .mobile-menu-info {
+                margin-top: auto;
+                padding-top: 30px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                
+                .mobile-menu-address,
+                .mobile-menu-hours {
+                    font-size: 14px;
+                    color: #666;
+                }
+                
+                .mobile-menu-social {
+                    display: flex;
+                    gap: 15px;
+                    margin-top: 10px;
+                    
+                    .social-link {
+                        img {
+                            width: 24px;
+                            height: 24px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 @media screen and (max-width: 900px) {
     .header {
         .header-container {
@@ -177,7 +344,7 @@
 
                 .header-right {
                     grid-column: 1 / -1;
-            grid-row: 2;
+                    grid-row: 2;
                     display: flex;
                     flex-direction: row;
                     gap: 30px;
@@ -241,5 +408,10 @@
                 display: none;
             }
         }
+    }
+    
+    
+    .mobile-menu-overlay {
+        display: block;
     }
 }

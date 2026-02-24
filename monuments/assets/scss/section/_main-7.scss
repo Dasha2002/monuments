@@ -1,7 +1,7 @@
 .main-7 {
     padding: 100px 39px 0 40px;
 
-    .main-7-heading {
+    &-heading {
         margin: 0;
         padding-bottom: 40px;
         font-size: 28px;
@@ -9,7 +9,7 @@
         text-align: center;
     }
 
-    .main-7-gallery {
+    &-gallery {
         position: relative;
         overflow: hidden;
 
@@ -18,9 +18,9 @@
             overflow: hidden;
         }
 
+        // Убираем transition, так как Swiper управляет им сам
         .gallery-track {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
+            display: flex; // Это свойство теперь нужно для .swiper-wrapper
         }
 
         .gallery-slide {
@@ -46,7 +46,6 @@
                 &:first-of-type img {
                     width: calc(16.666% - 17px); 
                 }
-
 
                 &:last-of-type img {
                     width: calc(25% - 15px); 
@@ -80,7 +79,8 @@
                 transition: background-color 0.3s ease;
                 cursor: pointer;
 
-                &.active {
+                // Класс active будет управляться JS, как и раньше
+                &.active, &.swiper-pagination-bullet-active { // Добавляем класс Swiper для надежности
                     background: #D94540;
                 }
             }
@@ -126,68 +126,69 @@
     }
 }
 
+// --- Медиа-запросы ---
+
 @media (max-width: 900px) {
-    .main-7-gallery {
-        .gallery-slide {
-            .row {
+    .main-7 {
+        &-gallery {
+            .gallery-slide {
+                .row {
+                    &:first-of-type img:nth-child(6) {
+                        display: none;
+                    }
 
-                &:first-of-type img:nth-child(6) {
-                    display: none;
-                }
+                    &:last-of-type img:nth-child(4) {
+                        display: none;
+                    }
 
-                &:last-of-type img:nth-child(4) {
-                    display: none;
-                }
-
-                &:first-of-type img {
-                    width: calc(20% - 16px);
-                }
-                &:last-of-type img {
-                    width: calc(33.333% - 14px); 
+                    &:first-of-type img {
+                        width: calc(20% - 16px);
+                    }
+                    &:last-of-type img {
+                        width: calc(33.333% - 14px); 
+                    }
                 }
             }
         }
     }
 }
 
-
-
 @media (max-width: 500px) {
     .main-7 {
         padding: 50px 20px 0 20px; 
-    }
 
-    .main-7-gallery {
-
-        .btn-arrow {
-            display: none !important;
-        }
-
-        .gallery-track {
-            display: block;
-            transform: none !important; 
-        }
-
-        .gallery-slide {
-            display: block; 
-            min-width: auto; 
-
-            &:not(:first-of-type) {
-                display: none;
+        &-gallery {
+            .btn-arrow {
+                display: none !important;
             }
-        }
 
-        .gallery-slide:first-of-type {
-            .row {
+            // Swiper не будет работать на мобильных, поэтому стили остаются прежними
+            .gallery-track {
+                display: block;
+                transform: none !important; 
+            }
+
+            .gallery-slide {
                 display: block; 
-                height: auto; 
+                min-width: auto; 
 
-                img {
+                &:not(:first-of-type) {
+                    display: none;
+                }
+            }
+
+            .gallery-slide:first-of-type {
+                .row {
                     display: block; 
-                    width: 100% !important; 
-                    height: 250px; 
-                    margin-bottom: 15px; 
-                    border-radius: 8px;
+                    height: auto; 
+
+                    img {
+                        display: block; 
+                        width: 100% !important; 
+                        height: 250px; 
+                        margin-bottom: 15px; 
+                        border-radius: 8px;
+                    }
                 }
             }
         }
