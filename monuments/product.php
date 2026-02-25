@@ -15,6 +15,7 @@
     <?php include __DIR__ . '/includes/header.php'; ?>
     <?php include __DIR__ . '/includes/product-1.php'; ?>
     <?php include __DIR__ . '/includes/product-2.php'; ?>
+    <?php include __DIR__ . '/includes/product-3.php'; ?>
     <?php include __DIR__ . '/includes/footer.php'; ?>
 
     <script src="assets/js/main.js"></script>

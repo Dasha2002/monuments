@@ -16,34 +16,31 @@
 
         <div class="block-two">
             <div class="block-img">
+                <div class="swiper thumbsSwiper">
+                    <div class="swiper-button-prev thumbs-prev"></div>
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="assets/img/image 6 (1).png"></div>
+                        <div class="swiper-slide"><img src="assets/img/image 6 (1).png"></div>
+                        <div class="swiper-slide"><img src="assets/img/image 6 (1).png"></div>
+                        <div class="swiper-slide"><img src="assets/img/image 6 (1).png"></div>
+                        <div class="swiper-slide"><img src="assets/img/image 6 (1).png"></div>
+                    </div>
+                    <div class="swiper-button-next thumbs-next"></div>
+                </div>
 
-    <!-- Thumbs -->
-    <div class="swiper thumbsSwiper">
-        <div class="swiper-button-prev thumbs-prev"></div>
-        <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="assets/img/image 6 (1).png"></div>
-            <div class="swiper-slide"><img src="assets/img/image 6 (1).png"></div>
-            <div class="swiper-slide"><img src="assets/img/image 6 (1).png"></div>
-            <div class="swiper-slide"><img src="assets/img/image 6 (1).png"></div>
-            <div class="swiper-slide"><img src="assets/img/image 6 (1).png"></div>
-        </div>
-        <div class="swiper-button-next thumbs-next"></div>
-    </div>
+                <div class="swiper mainSwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="assets/img/image 6 (1).png"></div>
+                        <div class="swiper-slide"><img src="assets/img/image 6 (1).png"></div>
+                        <div class="swiper-slide"><img src="assets/img/image 6 (1).png"></div>
+                        <div class="swiper-slide"><img src="assets/img/image 6 (1).png"></div>
+                        <div class="swiper-slide"><img src="assets/img/image 6 (1).png"></div>
+                    </div>
+                </div>
+                
+                <div class="mobile-pagination"></div>
 
-    <!-- Main -->
-    <div class="swiper mainSwiper">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="assets/img/image 6 (1).png"></div>
-            <div class="swiper-slide"><img src="assets/img/image 6 (1).png"></div>
-            <div class="swiper-slide"><img src="assets/img/image 6 (1).png"></div>
-            <div class="swiper-slide"><img src="assets/img/image 6 (1).png"></div>
-            <div class="swiper-slide"><img src="assets/img/image 6 (1).png"></div>
-        </div>
-    </div>
-    <!-- Пагинацию перенесли сюда, за пределы .mainSwiper -->
-    <div class="mobile-pagination"></div>
-
-</div>
+            </div>
 
             <div class="block-text">
                 <div class="text-one">

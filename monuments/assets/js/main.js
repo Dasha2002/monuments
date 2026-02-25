@@ -69,47 +69,71 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  const loadMoreBtn = document.querySelector(".load-more");
-  const products = document.querySelectorAll(".group-products .products");
+    const loadMoreBtn = document.querySelector(".load-more");
+    const products = document.querySelectorAll(".group-products .products");
 
-  if (!loadMoreBtn) return;
+    if (loadMoreBtn) {
+        let expanded = false;
 
-  let expanded = false;
+        function updateProducts() {
+            products.forEach((product, index) => {
+                if (window.innerWidth <= 600) {
+                    if (!expanded && index >= 4) {
+                        product.classList.add("hidden-mobile");
+                    } else {
+                        product.classList.remove("hidden-mobile");
+                    }
+                } else {
+                    product.classList.remove("hidden-mobile");
+                }
+            });
 
-  function updateProducts() {
-    products.forEach((product, index) => {
-
-      if (window.innerWidth <= 600) {
-
-        if (!expanded && index >= 4) {
-          product.classList.add("hidden-mobile");
-        } else {
-          product.classList.remove("hidden-mobile");
+            if (products.length > 4 && window.innerWidth <= 600) {
+                loadMoreBtn.style.display = "block";
+                loadMoreBtn.textContent = expanded ? "Свернуть" : "Загрузить еще";
+            } else {
+                loadMoreBtn.style.display = "none";
+            }
         }
 
-      } else {
-        product.classList.remove("hidden-mobile");
-      }
+        loadMoreBtn.addEventListener("click", () => {
+            expanded = !expanded;
+            updateProducts();
+        });
 
-    });
-
-    if (window.innerWidth <= 600) {
-      loadMoreBtn.style.display = "block";
-      loadMoreBtn.textContent = expanded ? "Свернуть" : "Загрузить еще";
-    } else {
-      loadMoreBtn.style.display = "none";
+        window.addEventListener("resize", updateProducts);
+        updateProducts();
     }
-  }
 
-  loadMoreBtn.addEventListener("click", () => {
-    expanded = !expanded;
-    updateProducts();
-  });
 
-  window.addEventListener("resize", updateProducts);
+    const productCards = document.querySelectorAll('.granite-3 .group-products .products');
 
-  updateProducts();
+    productCards.forEach(card => {
+        const button = card.querySelector('.expandable-content .add-to-cart');
+        
+        if (button) {
+            // Находим элемент с текстом внутри кнопки
+            const btnTextSpan = button.querySelector('.btn-text');
+            const originalText = btnTextSpan.textContent;
+
+            card.addEventListener('mouseenter', () => {
+                // Меняем текст
+                btnTextSpan.textContent = 'В корзину';
+                // Добавляем класс, который покажет иконку
+                button.classList.add('is-active');
+            });
+
+            card.addEventListener('mouseleave', () => {
+                // Возвращаем исходный текст
+                btnTextSpan.textContent = originalText;
+                // Удаляем класс, чтобы скрыть иконку
+                button.classList.remove('is-active');
+            });
+        }
+    });
 });
+
+
 
 
 // Этапы работы - раскрытие этапов
@@ -356,3 +380,135 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const track = document.querySelector('.slide-swiper');
+    const btnPrev = document.querySelector('.btn-left');
+    const btnNext = document.querySelector('.btn-right');
+
+    const slidesToShow = 5; 
+    let currentIndex = 0;
+
+    function moveCarousel(direction) {
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const maxIndex = totalSlides - slidesToShow;
+
+        currentIndex += direction;
+
+        if (currentIndex < 0) {
+            currentIndex = 0;
+        }
+        if (currentIndex > maxIndex) {
+            currentIndex = maxIndex;
+        }
+
+        const slideGap = 40; 
+        const slideWidth = slides[0].offsetWidth + slideGap;
+        const offset = currentIndex * slideWidth;
+
+        track.style.transform = `translateX(-${offset}px)`;
+        updateButtons();
+    }
+
+    function updateButtons() {
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const maxIndex = totalSlides - slidesToShow;
+
+        if (currentIndex === 0) {
+            btnPrev.style.opacity = '0.5';
+            btnPrev.style.cursor = 'not-allowed';
+            btnPrev.disabled = true;
+        } else {
+            btnPrev.style.opacity = '1';
+            btnPrev.style.cursor = 'pointer';
+            btnPrev.disabled = false;
+        }
+
+        if (currentIndex >= maxIndex) {
+            btnNext.style.opacity = '0.5';
+            btnNext.style.cursor = 'not-allowed';
+            btnNext.disabled = true;
+        } else {
+            btnNext.style.opacity = '1';
+            btnNext.style.cursor = 'pointer';
+            btnNext.disabled = false;
+        }
+    }
+
+    btnNext.addEventListener('click', () => moveCarousel(1));
+    btnPrev.addEventListener('click', () => moveCarousel(-1));
+
+    // Инициализация
+    updateButtons();
+});
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const statusDropdown = document.querySelector('.status');
+    const toggleButton = statusDropdown.querySelector('.dropdown-toggle');
+    const activText = statusDropdown.querySelector('.activ');
+    const menu = statusDropdown.querySelector('.dropdown-menu');
+    const menuItems = menu.querySelectorAll('a');
+
+    function toggleMenu() {
+        const isOpen = statusDropdown.classList.contains('is-active');
+        
+        if (isOpen) {
+            statusDropdown.classList.remove('is-active');
+            toggleButton.setAttribute('aria-expanded', 'false');
+        } else {
+            statusDropdown.classList.add('is-active');
+            toggleButton.setAttribute('aria-expanded', 'true');
+        }
+    }
+
+    
+    statusDropdown.addEventListener('click', function(event) {
+
+        if (event.target.closest('.dropdown-toggle') || event.target === activText) {
+            event.preventDefault(); 
+            toggleMenu();
+        }
+    });
+
+    menuItems.forEach(item => {
+        item.addEventListener('click', function(event) {
+            event.preventDefault(); 
+            
+            const selectedText = this.textContent; 
+            activText.textContent = selectedText; 
+            
+            toggleMenu(); 
+        });
+    });
+
+    document.addEventListener('click', function(event) {
+        if (!statusDropdown.contains(event.target)) {
+            statusDropdown.classList.remove('is-active');
+            toggleButton.setAttribute('aria-expanded', 'false');
+        }
+    });
+});
+
+
+
+    const filterButton = document.querySelector('.btn-filter');
+
+ 
+    if (filterButton) {
+
+        filterButton.addEventListener('click', function() {
+
+            this.classList.toggle('active');
+        });
+    }

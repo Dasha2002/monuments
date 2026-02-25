@@ -25,41 +25,6 @@
         transition: transform 0.5s ease-in-out;
     }
 
-    .review {
-        box-sizing: border-box; 
-        padding: 30px;
-        border: 1px solid #C6C6C6;
-        border-radius: 20px;
-
-        .img-review {
-            display: flex;
-            flex-direction: row;
-            gap: 15px;
-            align-items: center;
-        }
-        h3 {
-            margin: 0;
-            padding: 15px 0 10px;
-            font-size: 20px;
-            font-weight: 700;
-            color: #D94540;
-        }
-        p {
-            margin: 0;
-            padding-bottom: 36px;
-            font-size: 16px;
-            font-weight: 600;
-        }
-        .text-btn {
-            border: none;
-            background: none;
-            color: #D94540;
-            font-size: 16px;
-            font-weight: 600;
-            text-decoration: underline;
-            cursor: pointer;
-        }
-    }
 
     .btn-arrow-main-8 {
         position: relative;

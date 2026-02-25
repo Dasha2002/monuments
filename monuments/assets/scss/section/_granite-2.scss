@@ -1,0 +1,203 @@
+.granite-2 {
+    padding: 0 40px 0;
+    .block-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .heading {
+            border-bottom: 1px solid #D94540;
+            h2 {
+                margin: 0;
+                font-size: 24px;
+                font-weight: 600;
+                margin-bottom: 10px;
+            }
+        }
+        .search {
+            display: flex;
+            width: 600px; 
+            border: 1px solid #D94540; 
+            border-radius: 5px; 
+            overflow: hidden;
+
+            input {
+                flex-grow: 1; 
+                border: none; 
+                outline: none; 
+                padding: 13px 15px; 
+                font-size: 16px;
+                padding-right: 20px; 
+            }
+
+            button {
+                display: flex; 
+                align-items: center;
+                gap: 8px; 
+                border: none; 
+                cursor: pointer;
+                border-radius: 5px;
+                padding: 10px 33px;
+
+
+                img {
+                    width: 18px;
+                    height: 18px;
+                }
+            }
+        }
+    }
+
+    .menu {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 20px;
+        padding-top: 20px;
+    
+        .block:last-child {
+            grid-column: span 2;
+        }
+
+        .block {
+            background: linear-gradient(164.32deg, #FCFCFC 0.74%, #F2F2F2 99.04%);
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-content: space-between;
+            .heading {
+                display: flex;
+                flex-direction: row;
+                gap: 10px;
+                align-items: center;
+                padding-bottom: 17px;
+                h3 {
+                    margin: 0;
+                    font-size: 18px;
+                    font-weight: 600;
+                }
+                .quantity {
+                    padding: 7px 15px;
+                    background-color: #D94540;
+                    border-radius: 1020px;
+                    p {
+                        margin: 0;
+                        color: white;
+                        font-style: 14px;
+                        font-weight: 600;
+                    }
+                }
+            }
+            .inf {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-end;
+                a {
+                    margin: 0;
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: #D94540;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .granite-2 {
+        .block-header {
+            .search {
+                width: 100%;
+                max-width: 600px; 
+            }
+        }
+        .menu {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}
+
+
+@media (max-width: 768px) {
+    .granite-2 {
+        padding: 0 10px 0;
+
+        .block-header {
+            flex-direction: column;
+            align-items: flex-start;
+            .heading {
+                
+            }
+            .search {
+                order: -1; 
+                margin-bottom: 20px; 
+                max-width: 100%;
+                margin-bottom: 20px;
+                input {
+                    font-size: 12px;
+                    padding: 11px 10px;
+                } 
+                .btn-basic {
+                    padding: 7px 9px;
+                    font-size: 12px;
+                    img {
+                        width: 20px;
+                        height: 20px;
+                    }
+
+                }
+            }
+
+            > .heading {
+                border-bottom: none; 
+                margin: 0;
+                h2 {
+                    font-size: 16px;
+                    font-weight: 700;
+                    text-align: left;
+                    margin: 0;
+                }
+                
+            }
+        }
+
+        .menu {
+            grid-template-columns: 1fr;
+            padding-top: 10px;
+            gap: 5px;
+
+            .block {
+                padding: 10px;
+                position: relative;
+                height: 90px;
+                .heading {
+                    gap: 5px;
+                    padding-bottom: 0;
+                    h3 {
+                        font-size: 14px;
+                    }
+                    .quantity {
+                        padding: 5px 13px;
+                        p {
+                            font-size: 10px;
+                        }
+                    }
+                }
+                .inf {
+                    position: relative;
+                    a {
+                        margin-top: 50px;
+                    }
+                    img {
+                        position: absolute;
+                        right: 0;
+                        bottom: 0;
+                    }
+                }
+            }
+            .block:last-child {
+                grid-column: span 1;
+            }
+        }
+    }
+}

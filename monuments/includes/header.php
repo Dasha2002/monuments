@@ -47,7 +47,7 @@
                     Каталог <img src="assets/img/catalog.svg">
                 </a>
                 <ul class="catalog-menu">
-                    <li><a href="product.php">Памятники из гранита</a></li>
+                    <li><a href="granite.php">Памятники из гранита</a></li>
                     <li><a href="#">Памятники из мрамора</a></li>
                     <li><a href="#">Оградки на могилу</a></li>
                     <li><a href="#">Семейные памятники из мрамора</a></li>

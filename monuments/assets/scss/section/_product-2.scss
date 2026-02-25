@@ -77,22 +77,19 @@
                 display: flex;
                 gap: 20px;
                 align-items: flex-start;
-                position: relative; // Добавлено для позиционирования пагинации
+                position: relative; 
 
                 .thumbsSwiper {
                     position: relative;
                     width: 100px;
                     height: 430px;
 
-                    // --- ИЗМЕНЕНО: Сделали кнопки видимыми ---
                     .swiper-button-prev,
                     .swiper-button-next {
                         width: 20px;
                         height: 20px;
                         color: #000;
-                        z-index: 10; // Повышаем z-index
-                        background-color: rgba(255, 255, 255, 0.7); // Добавляем фон
-                        border-radius: 50%; // Делаем круглыми
+                        z-index: 10; 
                     }
 
                     .swiper-button-prev::after,
@@ -100,18 +97,18 @@
                         font-size: 14px;
                     }
                     .swiper-button-prev {
-                        top: 5px; // Корректируем отступ сверху
+                        top: 5px; 
                         left: 50%;
                         transform: translateX(-50%) rotate(90deg);
                     }
 
                     .swiper-button-next {
-                        bottom: 5px; // Корректируем отступ снизу
+                        bottom: 5px; 
                         left: 50%;
                         top: auto;
                         transform: translateX(-50%) rotate(90deg);
                     }
-                    // --- КОНЕЦ ИЗМЕНЕНИЙ ---
+
 
                     .swiper-wrapper {
                         height: 100%;
@@ -165,32 +162,30 @@
                     }
                 }
 
-                // --- НОВЫЙ БЛОК: Стили для пагинации ---
-                // По умолчанию скрыта для десктопа
                 .mobile-pagination {
-                    display: none; // <-- СКРЫВАЕМ НА ПК
+                    display: none; 
                     position: absolute;
-                    bottom: -30px; // Позиционируем под слайдером
+                    bottom: -30px; 
                     left: 0;
                     width: 100%;
-                    justify-content: center; // Центрируем точки
+                    justify-content: center; 
                     z-index: 10;
 
-                    // Стили для самих точек
+
                     .swiper-pagination-bullet {
                         width: 8px;
                         height: 8px;
-                        background-color: rgba(0, 0, 0, 0.3); // Цвет неактивной точки
+                        background-color: rgba(0, 0, 0, 0.3); 
                         opacity: 1;
-                        margin: 0 4px; // Отступ между точками
+                        margin: 0 4px; 
                     }
 
-                    // Стиль для активной точки
+
                     .swiper-pagination-bullet-active {
-                        background-color: #D94540; // <-- ЦВЕТ АКТИВНОЙ ТОЧКИ
+                        background-color: #D94540; 
                     }
                 }
-                // --- КОНЕЦ НОВОГО БЛОКА ---
+                
             }
 
             .block-text {
@@ -376,7 +371,6 @@
     }
 }
 
-// --- МЕДИАЗАПРОСЫ ---
 
 @media (max-width: 900px) {
     .product-2 {
@@ -459,16 +453,16 @@
                         display: none;
                     }
 
-                    // --- ИЗМЕНЕНО: Показываем пагинацию только на мобильных ---
+                    
                     .mobile-pagination {
-                        display: flex !important; // <-- ПОКАЗЫВАЕМ НА МОБИЛЬНЫХ
-                        margin-top: 10px; // <-- ДОБАВЛЯЕМ ОТСТУП 10px
-                        position: static; // Сбрасываем абсолютное позиционирование
+                        display: flex !important; 
+                        margin-top: 10px; 
+                        position: static; 
                         width: 100%;
                         bottom: auto;
                         left: auto;
                     }
-                    // --- КОНЕЦ ИЗМЕНЕНИЙ ---
+
                 }
 
                 .block-text {

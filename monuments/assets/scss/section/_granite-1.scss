@@ -1,0 +1,23 @@
+.granite-1 {
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    a, p {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 600;
+        color: #000000;
+        text-decoration: none;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .granite-1 {
+        padding: 20px 10px 10px;
+        a, p {
+            font-size: 10px;
+        }
+    }
+}
