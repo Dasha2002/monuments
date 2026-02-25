@@ -307,3 +307,52 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+// Карусель картинок для товара
+
+document.addEventListener("DOMContentLoaded", function () {
+    const thumbsSwiper = new Swiper(".thumbsSwiper", {
+        direction: "vertical",
+        slidesPerView: 4,
+        spaceBetween: 10,
+        watchSlidesProgress: true,
+        navigation: {
+            nextEl: ".thumbs-next",
+            prevEl: ".thumbs-prev",
+        },
+        breakpoints: {
+            0: {
+                direction: "horizontal",
+                slidesPerView: 3,
+            },
+            901: {
+                direction: "vertical",
+                slidesPerView: 4,
+            }
+        }
+    });
+
+    const mainSwiper = new Swiper(".mainSwiper", {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        effect: "slide",
+        thumbs: {
+            swiper: thumbsSwiper
+        },
+        pagination: {
+            el: ".mobile-pagination",
+            clickable: true,
+        },
+
+        breakpoints: {
+            0: {
+                slidesPerView: "auto",
+                centeredSlides: true,
+                spaceBetween: 20,
+            },
+            501: {
+                slidesPerView: 1,
+                centeredSlides: false,
+            }
+        }
+    });
+});
