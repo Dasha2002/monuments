@@ -1,0 +1,121 @@
+.blog-2 {
+    padding: 0 40px 0;
+    .block-menu {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        padding-bottom: 20px;
+        align-items: center;
+        h2 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 700;
+        }
+        div {
+            font-size: 16px;
+            font-weight: 600px;
+            color: #00000099;
+            cursor: pointer;
+        }
+        .active {
+            color: #000000;
+        }
+    }
+    .blog {
+        display: grid;
+        gap: 20px;
+        .row {
+            .block {
+                padding: 20px;
+                border-radius: 10px;
+                background-color: #F2F2F2;
+                position: relative;
+                
+                .img {
+                    width: 100%;
+                    img {
+                        width: 100%;
+                    }
+                }
+                h3 {
+                    font-size: 18px;
+                    font-weight: 600;
+                    color: #D94540;
+                    margin: 0;
+                    padding: 10px 0 10px;
+                }
+                p {
+                    margin: 0;
+                    font-size: 16px;
+                    font-weight: 600;
+                    padding-bottom: 30px;
+                }
+                a {
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: #D94540;
+                    margin: 0;
+                }
+            }
+        }
+        .row.one.reversed {
+    grid-template-columns: 1fr 1fr 2fr;
+}
+        .one {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 20px;
+        }
+        .two {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .blog-2 {
+        padding: 0 10px; 
+
+        .block-menu {
+            gap: 10px;
+            padding-bottom: 15px;
+
+            h2 {
+                font-size: 12px;
+            }
+
+            div {
+                font-size: 12px;
+            }
+        }
+
+        .blog {
+            gap: 10px;
+            .row {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                .block {
+                    padding: 10px;
+                    .img {
+                        img {
+                            height: 155px;
+                        }
+                    }
+                    h3 {
+                        font-size: 14px;
+                        padding: 5px 0 5px;
+                    }
+                    p {
+                        font-size: 12px;
+                        font-weight: 500;
+                        padding-bottom: 21px;
+                    }
+                }
+            }
+        }
+
+  }
+}

@@ -1,0 +1,245 @@
+.gallery-1 {
+    padding: 25px 40px 0;
+    .gallery-1-heading {
+        margin: 0;
+        font-size: 28px;
+        font-weight: 700;
+        padding-bottom: 45px;
+    }
+    .block-gallery {
+        display: flex;
+        flex-direction: column;
+        gap: 100px;
+        .block-granite {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            .row-granite-one {
+                display: flex;
+                flex-direction: row;
+                gap: 20px;
+                .block-one {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 41px;
+                    .one {
+                        h2 {
+                            margin: 0;
+                            font-size: 20px;
+                            font-weight: 700;
+                        }
+                        p {
+                            margin: 0;
+                            font-size: 16px;
+                            line-height: 100%;
+                        }
+                    }
+                    .two {
+                        display: flex;
+                        gap: 20px; 
+                        
+                    }
+                }
+                .block {
+                    display: flex;
+                    gap: 20px;
+                    
+                }
+            }
+            .row-granite {
+                display: flex;
+                gap: 20px;
+            }
+        }
+
+        .block-marble {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            .row-marble-one {
+                display: flex;
+                flex-direction: row;
+                gap: 20px;
+                .one {
+                    h2 {
+                        margin: 0;
+                        font-size: 20px;
+                        font-weight: 700;
+                        padding-bottom: 10px;
+                    }
+                    p {
+                        margin: 0;
+                        font-size: 16px;
+                        line-height: 100%;
+                    }
+                }
+                .two {
+                    display: flex;
+                    gap: 20px;
+                }
+            }
+            .row-marble {
+                display: flex;
+                gap: 20px;
+            }
+        }
+
+
+        .block-video {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            .row-video-one {
+                display: flex;
+                flex-direction: row;
+                gap: 20px;
+                .one {
+                    width: 100%;
+                    h2 {
+                        margin: 0;
+                        font-size: 20px;
+                        font-weight: 700;
+                        padding-bottom: 10px;
+                    }
+                    p {
+                        margin: 0;
+                        font-size: 16px;
+                        line-height: 100%;
+                    }
+                }
+                .two {
+                    display: flex;
+                    gap: 20px;
+                }
+            }
+            .row-video {
+                display: flex;
+                gap: 20px;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 700px) {
+    .gallery-1 {
+        padding: 20px 10px 0;
+        .gallery-1-heading {
+            font-size: 16px;
+            padding-bottom: 20px;
+        }
+        .block-gallery {
+            gap: 30px;
+            .block-granite {
+                gap: 10px;
+                .row-granite-one {
+                    flex-direction: column;
+                    gap: 10px;
+                    .block-one {
+                        gap: 10px;
+                        .one {
+                            h2 {
+                                font-size: 14px;
+                            }
+                            p {
+                                font-size: 12px;
+                            }
+                        }
+                        .two {
+                            flex-direction: column;
+                            gap: 10px;
+                            img {
+                                width: 100%;
+                            }
+                        }
+                    }
+                    .block {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        gap: 10px;
+                        img {
+                            height: 190px;
+                            width: 100%;
+                        }
+                    }
+                }
+                .two {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 10px;
+                    img {
+                        height: 190px;
+                        width: 145px;
+                    }
+                }
+                .three {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    gap: 10px;
+                    img {
+                        width: 100%;
+                    }
+                }
+                .four {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 10px;
+                    img {
+                        height: 190px;
+                        width: 145px;
+                    }
+                }
+            }
+
+            .block-marble {
+                gap: 10px;
+                .row-marble-one {
+                    flex-direction: column;
+                    gap: 10px;
+                    .one {
+                        h2 {
+                            font-size: 14px;
+                            padding-bottom: 5px;
+                        }
+                        p {
+                            font-size: 12px;
+                        }
+                    }
+                    .two {
+                        flex-direction: column;
+                        gap: 10px;
+                    }
+                }
+                .row-marble {
+                    flex-direction: column;
+                    gap: 10px;
+                }
+            }
+
+            .block-video {
+                gap: 10px;
+                .row-video-one {
+                    flex-direction: column;
+                    gap: 10px;
+                    .one {
+                        h2 {
+                            font-size: 14px;
+                            padding-bottom: 5px;
+                        }
+                        p {
+                            font-size: 12px;
+                        }
+                    }
+                    .two {
+                        flex-direction: column;
+                        gap: 10px;
+                    }
+                }
+                .row-video {
+                    flex-direction: column;
+                    gap: 10px;
+                }
+            }
+        }
+    }
+}

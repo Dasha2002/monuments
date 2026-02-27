@@ -19,7 +19,7 @@
 
             <div class="header-right">
                 <div class="header-icons">
-                    <a href="#" class="icon-link">
+                    <a href="basket.php" class="icon-link">
                         <img src="assets/img/basket.svg">
                         <span>Корзина</span>
                     </a>

@@ -13,7 +13,7 @@
 <body>
 
     <?php include __DIR__ . '/includes/header.php'; ?>
-
+    <?php include __DIR__ . '/includes/gallery-1.php'; ?>
     <?php include __DIR__ . '/includes/footer.php'; ?>
 
     <script src="assets/js/main.js"></script>

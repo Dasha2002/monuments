@@ -1,0 +1,13 @@
+.blog-1 {
+    padding: 30px 40px 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    a, p {
+        margin: 0;
+        font-size: 28px;
+        font-weight: 700;
+        text-decoration: none;
+        color: black;
+    }
+}

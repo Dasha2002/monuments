@@ -1,0 +1,131 @@
+.delivery-1 {
+    padding: 25px 40px 0;
+    .delivery-heading {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 700;
+        padding-bottom: 20px;
+    }
+    .block-delivery {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 135px;
+        .block-one {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            .block {
+                h2 {
+                    margin: 0;
+                    font-size: 20px;
+                    font-weight: 700;
+                    padding-bottom: 10px;
+                }
+                p {
+                    margin: 0;
+                    font-size: 16px;
+                }
+                ul {
+                    margin: 0;
+                    padding-left: 30px;
+                    li {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+
+        .block-two {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            .block {
+                h2 {
+                    margin: 0;
+                    font-size: 20px;
+                    font-weight: 700;
+                }
+                p {
+                    margin: 0;
+                    font-size: 16px;
+                }
+                .top {
+                    padding-bottom: 10px;
+                }
+                ul {
+                    margin: 0;
+                    padding-left: 30px;
+                    li {
+                        font-size: 16px;
+                    }
+                }
+                .inf {
+                    font-weight: 700;
+                }
+            }
+            .block-inf {
+                h2 {
+                    margin: 0;
+                    font-size: 20px;
+                    font-weight: 700;
+                    color: #D94540;
+                    padding-bottom: 10px;
+                }
+                p {
+                    font-size: 16px;
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .delivery-1 {
+        padding: 20px 10px 0;
+        .delivery-heading {
+            font-size: 12px;
+        }
+        .block-delivery {
+            flex-direction: column;
+            gap: 20px;
+            .block-one {
+                .block {
+                    h2 {
+                        font-size: 16px;
+                    }
+                    p {
+                        font-size: 12px;
+                    }
+                    ul {
+                        padding-left: 20px;
+                        li {
+                            font-size: 12px;
+                        }
+                    }
+                }
+                .computer {
+                    display: none;
+                }
+            }
+            .block-two {
+                gap: 20px;
+                .block {
+                    h2 {
+                        font-size: 16px;
+                    }
+                    p {
+                        font-size: 12px;
+                    }
+                    ul {
+                        padding-left: 20px;
+                        li {
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
