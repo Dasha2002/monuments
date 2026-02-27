@@ -14,6 +14,7 @@
 
     <?php include __DIR__ . '/includes/header.php'; ?>
     <?php include __DIR__ . '/includes/basket-1.php'; ?>
+    <?php include __DIR__ . '/includes/popap.php'; ?>
     <?php include __DIR__ . '/includes/product-3.php'; ?>
     <?php include __DIR__ . '/includes/footer.php'; ?>
 

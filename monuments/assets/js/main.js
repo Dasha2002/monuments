@@ -112,21 +112,16 @@ document.addEventListener("DOMContentLoaded", () => {
         const button = card.querySelector('.expandable-content .add-to-cart');
         
         if (button) {
-            // Находим элемент с текстом внутри кнопки
             const btnTextSpan = button.querySelector('.btn-text');
             const originalText = btnTextSpan.textContent;
 
             card.addEventListener('mouseenter', () => {
-                // Меняем текст
                 btnTextSpan.textContent = 'В корзину';
-                // Добавляем класс, который покажет иконку
                 button.classList.add('is-active');
             });
 
             card.addEventListener('mouseleave', () => {
-                // Возвращаем исходный текст
                 btnTextSpan.textContent = originalText;
-                // Удаляем класс, чтобы скрыть иконку
                 button.classList.remove('is-active');
             });
         }
@@ -512,3 +507,257 @@ document.addEventListener('DOMContentLoaded', function() {
             this.classList.toggle('active');
         });
     }
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    initCart();
+    initCatalog();
+});
+
+
+// Корзина
+
+function initCart() {
+    const productContainer = document.querySelector('.product-block');
+
+    if (!productContainer) return;
+
+    document.querySelectorAll('.product').forEach(product => {
+        const priceEl = product.querySelector('.price-two');
+        if (priceEl) {
+            const basePrice = getNumber(priceEl.textContent);
+            product.dataset.basePrice = basePrice;
+        }
+    });
+
+    productContainer.addEventListener('click', (e) => {
+
+
+        if (e.target.closest('.btn-delete')) {
+            const product = e.target.closest('.product');
+            product.remove();
+            updateCartSummary();
+        }
+
+        if (e.target.classList.contains('plus')) {
+            const product = e.target.closest('.product');
+            changeQuantity(product, 1);
+        }
+
+        if (e.target.classList.contains('minus')) {
+            const product = e.target.closest('.product');
+            changeQuantity(product, -1);
+        }
+
+    });
+
+    updateCartSummary();
+}
+
+
+function changeQuantity(product, delta) {
+    const numberEl = product.querySelector('.number');
+    let quantity = parseInt(numberEl.textContent);
+
+    quantity += delta;
+    if (quantity < 1) quantity = 1;
+
+    numberEl.textContent = quantity;
+
+    updateProductPrice(product, quantity);
+    updateCartSummary();
+}
+
+function updateProductPrice(product, quantity) {
+    const basePrice = parseInt(product.dataset.basePrice);
+    const priceEl = product.querySelector('.price-two');
+
+    const newPrice = basePrice * quantity;
+    priceEl.textContent = formatPrice(newPrice) + ' ₽';
+}
+
+function updateCartSummary() {
+    const products = document.querySelectorAll('.product');
+
+    let totalQuantity = 0;
+    let totalPrice = 0;
+
+    products.forEach(product => {
+        const quantity = parseInt(product.querySelector('.number').textContent);
+        const basePrice = parseInt(product.dataset.basePrice);
+
+        totalQuantity += quantity;
+        totalPrice += basePrice * quantity;
+    });
+
+    const quantityEl = document.querySelector('.block-quantity .quantity');
+    if (quantityEl) quantityEl.textContent = totalQuantity;
+
+    document.querySelectorAll('.quantity-price').forEach(el => {
+        el.textContent = formatPrice(totalPrice) + ' ₽';
+    });
+
+    updateCartIcon(totalQuantity);
+}
+
+
+function addToCart(productCard) {
+
+    const name = productCard.querySelector('.product-heading').textContent;
+    const priceText = productCard.querySelector('.price-new').textContent;
+    const image = productCard.querySelector('img').src;
+
+    const basePrice = getNumber(priceText);
+
+    const container = document.querySelector('.product-block');
+    if (!container) return;
+
+    const existingProduct = [...document.querySelectorAll('.product')]
+        .find(p => p.querySelector('.heading-product').textContent === name);
+
+    if (existingProduct) {
+        changeQuantity(existingProduct, 1);
+        showNotification('Количество увеличено');
+        return;
+    }
+
+    const product = document.createElement('div');
+    product.className = 'product';
+    product.dataset.basePrice = basePrice;
+
+    product.innerHTML = `
+        <div class="img"><img src="${image}"></div>
+        <div class="inf-product">
+            <div class="inf-one">
+                <div class="heading">
+                    <h2 class="heading-product">${name}</h2>
+                </div>
+                <div class="delete">
+                    <button class="btn-delete">×</button>
+                </div>
+            </div>
+            <div class="inf-two">
+                <div class="counter">
+                    <div class="one">
+                        <button class="minus">-</button>
+                        <div class="number">1</div>
+                        <button class="plus">+</button>
+                    </div>
+                    <p>шт</p>
+                </div>
+                <div class="price">
+                    <p class="price-one">Цена: </p>
+                    <div class="price-two">${formatPrice(basePrice)} ₽</div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    container.appendChild(product);
+
+    updateCartSummary();
+    showNotification('Товар добавлен в корзину');
+}
+
+function initCatalog() {
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            const card = button.closest('.products');
+            addToCart(card);
+        });
+    });
+}
+
+function updateCartIcon(quantity) {
+    const icon = document.querySelector('.icon-link');
+    if (!icon) return;
+
+    const oldCounter = icon.querySelector('.cart-counter');
+    if (oldCounter) oldCounter.remove();
+
+    if (quantity > 0) {
+        const counter = document.createElement('span');
+        counter.className = 'cart-counter';
+        counter.textContent = quantity;
+        icon.appendChild(counter);
+    }
+}
+
+function getNumber(str) {
+    return parseInt(str.replace(/\s/g, '').replace('₽', ''));
+}
+
+function formatPrice(price) {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+}
+
+function showNotification(message) {
+    let notification = document.querySelector('.notification');
+
+    if (!notification) {
+        notification = document.createElement('div');
+        notification.className = 'notification';
+        document.body.appendChild(notification);
+    }
+
+    notification.textContent = message;
+    notification.style.display = 'block';
+
+    setTimeout(() => {
+        notification.style.display = 'none';
+    }, 2000);
+}
+
+
+
+// popap блок
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Находим все нужные элементы
+    const orderButton = document.querySelector('.making .btn-basic'); // Кнопка "Оформить заказ"
+    const popup = document.querySelector('.popap'); // Сам попап
+    // ИЗМЕНЕНИЕ: Ищем родительский блок .close
+    const closeButtonContainer = popup.querySelector('.close'); 
+    const mainPageButton = popup.querySelector('.btn-main-popap'); // Кнопка "На главную"
+    const body = document.body;
+
+    // Функция для открытия попапа
+    function openPopup() {
+        popup.classList.add('popup-visible');
+        body.classList.add('body-no-scroll');
+    }
+
+    // Функция для закрытия попапа
+    function closePopup() {
+        popup.classList.remove('popup-visible');
+        body.classList.remove('body-no-scroll');
+    }
+
+    // 1. Открытие попапа по клику на "Оформить заказ"
+    if (orderButton) {
+        orderButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            openPopup();
+        });
+    }
+
+    // 2. Закрытие попапа по клику на блок .close
+    if (closeButtonContainer) {
+        closeButtonContainer.addEventListener('click', closePopup);
+    }
+
+    // 3. Закрытие по клику на "На главную"
+    if (mainPageButton) {
+        mainPageButton.addEventListener('click', closePopup);
+    }
+
+    // 4. Закрытие по клику на темный фон
+    popup.addEventListener('click', function(event) {
+        // Убедимся, что клик был именно по фону, а не по содержимому
+        if (event.target === popup.querySelector('.popap-overlay')) {
+            closePopup();
+        }
+    });
+});

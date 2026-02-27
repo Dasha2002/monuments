@@ -279,6 +279,39 @@ button, input {
   color: #000000;
   font-size: 12px;
 }
+.header .header-container .header-one .header-right .header-icons {
+  /* Стили для счетчика в иконке корзины */
+}
+.header .header-container .header-one .header-right .header-icons .icon-link {
+  position: relative;
+}
+.header .header-container .header-one .header-right .header-icons .cart-counter {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #972823;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+.header .header-container .header-one .header-right .header-icons .notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #972823;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  display: none;
+}
 .header .header-container .header-one .header-right .header-contacts {
   display: flex;
   flex-direction: column;
@@ -4300,6 +4333,575 @@ footer .footer .footer-two .two .text {
   .gallery-1 .block-gallery .block-video .row-video {
     flex-direction: column;
     gap: 10px;
+  }
+}
+.basket-1 {
+  padding: 20px 40px 0;
+}
+.basket-1 .basket-1-heading {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  padding-bottom: 20px;
+}
+.basket-1 .basket {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 20px;
+}
+.basket-1 .basket .product-block {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.basket-1 .basket .product-block .product {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 25px;
+  background-color: #F9F9F9;
+  border-radius: 10px;
+  padding: 25px;
+}
+.basket-1 .basket .product-block .product .inf-product {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+.basket-1 .basket .product-block .product .inf-product .inf-one {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 223px;
+}
+.basket-1 .basket .product-block .product .inf-product .inf-one .heading .heading-product {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  padding-bottom: 10px;
+}
+.basket-1 .basket .product-block .product .inf-product .inf-one .heading .size {
+  margin: 0;
+  font-size: 14px;
+}
+.basket-1 .basket .product-block .product .inf-product .inf-one .delete button {
+  background: none;
+  border: none;
+}
+.basket-1 .basket .product-block .product .inf-product .inf-two {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.basket-1 .basket .product-block .product .inf-product .inf-two .counter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+}
+.basket-1 .basket .product-block .product .inf-product .inf-two .counter .one {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 34px;
+  background-color: #FFFFFF;
+  border: 1px solid #DADADA;
+  border-radius: 5px;
+  padding: 10px;
+}
+.basket-1 .basket .product-block .product .inf-product .inf-two .counter .one .plus, .basket-1 .basket .product-block .product .inf-product .inf-two .counter .one .number, .basket-1 .basket .product-block .product .inf-product .inf-two .counter .one .minus {
+  margin: 0;
+  font-size: 20px;
+}
+.basket-1 .basket .product-block .product .inf-product .inf-two .counter .one .plus, .basket-1 .basket .product-block .product .inf-product .inf-two .counter .one .minus {
+  font-weight: 400;
+  background: none;
+  border: none;
+}
+.basket-1 .basket .product-block .product .inf-product .inf-two .counter p {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+}
+.basket-1 .basket .product-block .product .inf-product .inf-two .price {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+.basket-1 .basket .product-block .product .inf-product .inf-two .price .price-one {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #972823;
+}
+.basket-1 .basket .product-block .product .inf-product .inf-two .price .price-two {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #972823;
+}
+.basket-1 .basket .product-block .product .inf-product .inf-two .price .price-three {
+  margin: 0;
+  font-size: 14px;
+  text-decoration: line-through;
+  opacity: 30%;
+}
+.basket-1 .basket .making {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  background-color: #F9F9F9;
+}
+.basket-1 .basket .making h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #972823;
+  padding-bottom: 10px;
+}
+.basket-1 .basket .making .conditions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 15px;
+}
+.basket-1 .basket .making .conditions .block-one .block-quantity {
+  display: flex;
+  gap: 5px;
+  padding-bottom: 6px;
+}
+.basket-1 .basket .making .conditions .block-one .block-quantity p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+.basket-1 .basket .making .conditions .block-one p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+.basket-1 .basket .making .conditions .block-two h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+.basket-1 .basket .making .conditions .block-two .quantity-price {
+  padding-bottom: 5px;
+}
+.basket-1 .basket .making form .input-block {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  padding-bottom: 15px;
+}
+.basket-1 .basket .making form .input-block input, .basket-1 .basket .making form .input-block textarea {
+  padding: 15px 20px;
+  font-size: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.1019607843);
+  border-radius: 5px;
+}
+.basket-1 .basket .making form .input-block input::placeholder, .basket-1 .basket .making form .input-block textarea::placeholder {
+  opacity: 50%;
+}
+.basket-1 .basket .making form .checkbox h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  padding-bottom: 15px;
+}
+.basket-1 .basket .making form .checkbox .block-check {
+  display: flex;
+  flex-direction: row;
+  gap: 72px;
+}
+.basket-1 .basket .making form .checkbox .block-check label {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 100%;
+}
+.basket-1 .basket .making form .checkbox .block-check label input[type=radio] {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+.basket-1 .basket .making form .checkbox .block-check label .custom-radio {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #000000;
+  border-radius: 3px;
+  transition: border-color 0.2s ease-in-out;
+}
+.basket-1 .basket .making form .checkbox .block-check label .custom-radio::before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 3px;
+  left: 2.5px;
+  width: 7.5px;
+  height: 5.5px;
+  border-right: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  transform: rotate(45deg) scale(0);
+  transition: all 0.2s ease-in-out;
+}
+.basket-1 .basket .making form .checkbox .block-check label input[type=radio]:checked + .custom-radio {
+  border-color: #972823;
+}
+.basket-1 .basket .making form .checkbox .block-check label input[type=radio]:checked + .custom-radio::before {
+  border-color: #972823;
+  transform: rotate(45deg) scale(1);
+}
+.basket-1 .basket .making form .total {
+  padding-top: 31px;
+}
+.basket-1 .basket .making form .total .total-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 15px;
+}
+.basket-1 .basket .making form .total .total-block h3 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #972823;
+}
+.basket-1 .basket .making form .total .total-block p {
+  margin: 0;
+  color: #972823;
+  font-size: 24px;
+  font-weight: 600;
+}
+.basket-1 .basket .making form .total .btn-basic, .basket-1 .basket .making form .total .granite-3 .block-granite-3 .group-products .products .expandable-content .add-to-cart, .granite-3 .block-granite-3 .group-products .products .expandable-content .basket-1 .basket .making form .total .add-to-cart {
+  width: 100%;
+}
+
+@media screen and (max-width: 900px) {
+  .basket-1 {
+    padding: 20px 20px 0;
+  }
+  .basket-1 .basket {
+    grid-template-columns: 1fr;
+  }
+  .basket-1 .basket .product-block .product {
+    grid-template-columns: 120px 1fr;
+    gap: 20px;
+  }
+  .basket-1 .basket .product-block .product .inf-product {
+    gap: 40px;
+  }
+  .basket-1 .basket .product-block .product .inf-product .inf-one {
+    gap: 20px;
+  }
+  .basket-1 .basket .making {
+    margin-top: 10px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .basket-1 {
+    padding: 15px 10px 0;
+  }
+  .basket-1 .basket-1-heading {
+    font-size: 14px;
+    padding-bottom: 10px;
+  }
+  .basket-1 .basket {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+  .basket-1 .basket .product-block .product {
+    grid-template-columns: repeat(2, auto);
+    padding: 10px;
+    gap: 10px;
+  }
+  .basket-1 .basket .product-block .product .img img {
+    width: 80px;
+    height: 80px;
+  }
+  .basket-1 .basket .product-block .product .inf-product {
+    gap: 26px !important;
+  }
+  .basket-1 .basket .product-block .product .inf-product .inf-one {
+    gap: 10px !important;
+  }
+  .basket-1 .basket .product-block .product .inf-product .inf-one .heading h2 {
+    font-size: 12px !important;
+    padding: 0 !important;
+  }
+  .basket-1 .basket .product-block .product .inf-product .inf-one .heading p {
+    display: none;
+  }
+  .basket-1 .basket .product-block .product .inf-product .inf-one .delete img {
+    width: 10px;
+    height: 12px;
+  }
+  .basket-1 .basket .product-block .product .inf-product .inf-two {
+    justify-content: space-between;
+  }
+  .basket-1 .basket .product-block .product .inf-product .inf-two .counter {
+    gap: 5px;
+  }
+  .basket-1 .basket .product-block .product .inf-product .inf-two .counter .one {
+    padding: 0 5px;
+    border-radius: 3px;
+    border: 1px solid #DADADA;
+    background-color: #F2F2F2;
+    gap: 11px !important;
+  }
+  .basket-1 .basket .product-block .product .inf-product .inf-two .counter .one button, .basket-1 .basket .product-block .product .inf-product .inf-two .counter .one div {
+    font-size: 14px;
+  }
+  .basket-1 .basket .product-block .product .inf-product .inf-two .counter .one button {
+    padding: 0;
+  }
+  .basket-1 .basket .product-block .product .inf-product .inf-two .counter p {
+    font-size: 12px;
+  }
+  .basket-1 .basket .product-block .product .inf-product .inf-two .price .price-one {
+    display: none;
+  }
+  .basket-1 .basket .product-block .product .inf-product .inf-two .price .price-two {
+    font-size: 12px;
+  }
+  .basket-1 .basket .product-block .product .inf-product .inf-two .price .price-three {
+    font-size: 8px;
+  }
+  .basket-1 .basket .making {
+    padding: 10px;
+    margin-top: 0;
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+  .basket-1 .basket .making h2 {
+    font-size: 14px;
+    padding-bottom: 5px;
+  }
+  .basket-1 .basket .making .conditions {
+    padding-bottom: 10px;
+  }
+  .basket-1 .basket .making .conditions .block-one .block-quantity {
+    padding-bottom: 5px;
+  }
+  .basket-1 .basket .making .conditions .block-one .block-quantity p {
+    font-size: 12px;
+  }
+  .basket-1 .basket .making .conditions .block-one p {
+    font-size: 12px;
+  }
+  .basket-1 .basket .making .conditions .block-two h3 {
+    font-size: 12px;
+    text-align: right;
+  }
+  .basket-1 .basket .making form .input-block input, .basket-1 .basket .making form .input-block textarea {
+    font-size: 12px;
+    padding: 11px 10px;
+  }
+  .basket-1 .basket .making form .checkbox h3 {
+    font-size: 14px;
+    padding-bottom: 10px;
+  }
+  .basket-1 .basket .making form .checkbox .block-check {
+    justify-content: space-between;
+  }
+  .basket-1 .basket .making form .checkbox .block-check label {
+    gap: 3px;
+    font-size: 8px;
+  }
+  .basket-1 .basket .making form .checkbox .block-check label img {
+    width: 18px;
+    height: 18px;
+  }
+  .basket-1 .basket .making form .total {
+    padding-top: 15px;
+  }
+  .basket-1 .basket .making form .total .total-block {
+    padding-bottom: 10px;
+  }
+  .basket-1 .basket .making form .total .total-block h3, .basket-1 .basket .making form .total .total-block p {
+    font-size: 16px;
+  }
+  .basket-1 .basket .making form .total .btn-basic, .basket-1 .basket .making form .total .granite-3 .block-granite-3 .group-products .products .expandable-content .add-to-cart, .granite-3 .block-granite-3 .group-products .products .expandable-content .basket-1 .basket .making form .total .add-to-cart {
+    font-size: 12px;
+    padding: 11px 0 11px;
+  }
+}
+.body-no-scroll {
+  overflow: hidden;
+}
+
+.popap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+.popap.popup-visible {
+  opacity: 1;
+  visibility: visible;
+}
+.popap .popap-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(85, 85, 85, 0.53);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.popap .popap-content {
+  position: relative;
+  background: linear-gradient(164.32deg, #FCFCFC 0.74%, #F2F2F2 99.04%);
+  border-radius: 20px;
+  padding: 40px;
+  height: 630px;
+  width: 1000px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  transform: scale(0.8);
+  transition: transform 0.4s ease;
+}
+.popup-visible .popap .popap-content {
+  transform: scale(1);
+}
+.popap .popap-content .close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  z-index: 10;
+}
+.popap .popap-content .close .btn-close {
+  width: 100%;
+  height: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 60px;
+  right: 60px;
+}
+.popap .popap-content .close .btn-close::before, .popap .popap-content .close .btn-close::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 2px;
+  background-color: #D94540;
+  transition: background-color 0.2s ease;
+}
+.popap .popap-content .close .btn-close::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.popap .popap-content .close .btn-close::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+.popap .popap-content .close:hover .btn-close::before, .popap .popap-content .close:hover .btn-close::after {
+  background-color: #333;
+}
+.popap .popap-content .img img {
+  position: absolute;
+}
+.popap .popap-content .img .one {
+  top: 20px;
+  left: 20px;
+}
+.popap .popap-content .img .two {
+  top: 20px;
+  right: 20px;
+}
+.popap .popap-content .img .three {
+  bottom: 20px;
+  left: 20px;
+}
+.popap .popap-content .img .four {
+  bottom: 20px;
+  right: 20px;
+}
+.popap .popap-content .text {
+  padding-top: 10%;
+}
+.popap .popap-content .text h2 {
+  color: #972823;
+  font-size: 48px;
+  font-weight: 700;
+  padding-bottom: 20px;
+  margin: 0;
+}
+.popap .popap-content .text p {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0;
+  padding-bottom: 30px;
+}
+.popap .popap-content .text .btn-main-popap {
+  padding: 10px 50.5px;
+  font-size: 18px;
+}
+
+@media screen and (max-width: 600px) {
+  .popap .popap-content {
+    padding: 10px;
+    height: 500px;
+  }
+  .popap .popap-content .img .one {
+    top: 10px;
+    left: 10px;
+    width: 100px;
+  }
+  .popap .popap-content .img .two {
+    top: 10px;
+    right: 10px;
+    width: 100px;
+  }
+  .popap .popap-content .img .three {
+    bottom: 10px;
+    left: 10px;
+    width: 100px;
+  }
+  .popap .popap-content .img .four {
+    bottom: 10px;
+    right: 10px;
+    width: 170px;
+    z-index: 0;
+  }
+  .popap .popap-content .block {
+    position: relative;
+    z-index: 2;
+  }
+  .popap .popap-content .block .close .btn-close {
+    top: 20px;
+    right: 20px;
+  }
+  .popap .popap-content .block .text {
+    padding-top: 30%;
+  }
+  .popap .popap-content .block .text h2 {
+    font-size: 18px;
+  }
+  .popap .popap-content .block .text p {
+    font-size: 11px;
+  }
+  .popap .popap-content .block .text button {
+    font-size: 12px;
   }
 }
 
