@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
 
         pagination: {
-            el: '.mySwiper .swiper-pagination',
+            el: '.main-7-gallery .swiper-pagination',
             clickable: true,
         },
         
@@ -720,6 +720,32 @@ document.addEventListener("DOMContentLoaded", () => {
                 window.location.href = `product.php?id=${productId}`;
             } else {
                 window.location.href = 'product.php';
+            }
+        });
+    });
+});
+
+
+
+// Чтобы браузер не ругалься на id 
+document.addEventListener('DOMContentLoaded', function() {
+    const productBlocks = document.querySelectorAll('.products');
+
+    productBlocks.forEach((block, index) => {
+        const selects = block.querySelectorAll('select');
+
+        selects.forEach(select => {
+            const originalId = select.id; 
+            
+            if (originalId) {
+
+                const uniqueId = `${originalId}-${index + 1}`; 
+                select.id = uniqueId;
+                
+                const label = select.previousElementSibling;
+                if (label && label.tagName === 'LABEL') {
+                    label.setAttribute('for', uniqueId);
+                }
             }
         });
     });

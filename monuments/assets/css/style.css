@@ -732,6 +732,7 @@ button, input {
   }
   .main-1 .main-1-block .swiper .swiper-wrapper .swiper-slide {
     padding: 20px;
+    background-image: utl("assets/img/image.png") !important;
   }
   .main-1 .main-1-block .swiper .swiper-wrapper .swiper-slide .main-heading {
     font-size: 18px;
@@ -740,14 +741,14 @@ button, input {
     font-size: 12px;
     padding: 8px 6.5px;
   }
-  .main-1 .main-1-block .swiper .viewing {
-    left: 20px;
-    right: 20px;
-    bottom: 20px;
+  .main-1 .main-1-block .swiper .swiper-wrapper .two {
+    background-image: utl("assets/img/image.png");
   }
-  .main-1 .main-1-block .swiper .viewing .swiper-pagination-bullet {
-    width: 8px;
-    height: 8px;
+  .main-1 .main-1-block .swiper .swiper-wrapper .three {
+    background-image: utl("assets/img/image.png");
+  }
+  .main-1 .main-1-block .swiper .viewing {
+    display: none !important;
   }
   .main-1 .main-1-block .block-discount {
     width: auto;

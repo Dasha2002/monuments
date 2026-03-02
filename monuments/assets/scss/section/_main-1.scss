@@ -169,11 +169,11 @@
                 border-radius: 5px;
                 height: 320px;
                 order: 1;
-                
-                // УБРАЛИ ПРАВИЛО КОТОРОЕ СКРЫВАЕТ СЛАЙДЫ
+
                 .swiper-wrapper {
                     .swiper-slide {
                         padding: 20px;
+                        background-image: utl("assets/img/image.png") !important;
                         .main-heading {
                             font-size: 18px;
                         }
@@ -182,19 +182,19 @@
                             padding: 8px 6.5px;
                         }
                     }
-                }
-
-                // ОСТАВИЛИ ВИДИМЫМИ ЭЛЕМЕНТЫ УПРАВЛЕНИЯ
-                .viewing {
-                    left: 20px;
-                    right: 20px;
-                    bottom: 20px;
-                    
-                    .swiper-pagination-bullet {
-                        width: 8px;
-                        height: 8px;
+                    .two {
+                        background-image: utl("assets/img/image.png");
+                    }
+                    .three {
+                        background-image: utl("assets/img/image.png");
                     }
                 }
+
+                
+                .viewing {
+                    display: none !important; 
+                }
+                
             }
 
             .block-discount {

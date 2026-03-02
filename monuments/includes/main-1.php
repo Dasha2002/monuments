@@ -4,17 +4,17 @@
 
             <div class="swiper-wrapper">
 
-                <div class="swiper-slide" style="background-image: url('assets/img/image.png')">
+                <div class="swiper-slide" style="background-image: url('assets/img/image (10).png')">
                     <h1 class="main-heading">Производство и реализация<br> качественных ритуальных<br> изделий</h1>
                     <button class="btn-basic">Перейти в каталог</button>
                 </div>
 
-                <div class="swiper-slide two" style="background-image: url('assets/img/image.png')">
+                <div class="swiper-slide two" style="background-image: url('assets/img/image (10).png')">
                     <h1 class="main-heading">Широкий ассортимент<br> ритуальных товаров<br> для любых потребностей</h1>
                     <button class="btn-basic">Перейти в каталог</button>
                 </div>
 
-                <div class="swiper-slide two" style="background-image: url('assets/img/image.png')">
+                <div class="swiper-slide three" style="background-image: url('assets/img/image (10).png')">
                     <h1 class="main-heading">Доставка по всей стране<br> и профессиональные<br> консультации</h1>
                     <button class="btn-basic">Перейти в каталог</button>
                 </div>

@@ -67,12 +67,7 @@
         </div>
         
         <div class="btn-arrow">
-            <div class="dots">
-                <!-- Активный класс будет управляться JS -->
-                <span class="dot swiper-pagination-bullet-active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-            </div>
+            <div class="swiper-pagination"></div>
             <!-- Добавляем ID для легкого доступа из JS -->
             <div class="btn one-left" id="gallery-prev">
                 <button class="arrow left"><img src="assets/img/gravity-ui_arrow-left (1).svg"></button>
