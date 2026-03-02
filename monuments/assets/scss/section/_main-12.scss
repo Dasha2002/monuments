@@ -7,8 +7,9 @@
         text-align: center;
         padding-bottom: 40px;
     }
-    img {
+    iframe {
         width: 100%;
+        border-radius: 20px;
     }
 }
 
@@ -18,6 +19,9 @@
         .main-12-heading {
             font-size: 16px;
             padding-bottom: 20px;
+        }
+        iframe {
+            height: 170px;
         }
     }
 }

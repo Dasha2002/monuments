@@ -40,33 +40,36 @@
                 justify-content: space-between;
                 align-items: center;
                 z-index: 10;
-                pointer-events: none;
 
                 .swiper-button-prev,
                 .swiper-button-next {
                     position: static;
-                    pointer-events: auto;
+                    cursor: pointer; 
                 }
 
+                
+                .swiper-button-prev {
+                    z-index: auto; 
+                }
                 .swiper-button-prev::after,
                 .swiper-button-next::after {
                     display: none;
                 }
 
-                .swiper-pagination {
-                    pointer-events: auto;
-                }
-
+               
                 .swiper-pagination-bullet {
-                    width: 12px !important;
-                    height: 12px !important;
-                    background-color: #fff !important;
-                    opacity: 1 !important;
+                    width: 12px;
+                    height: 12px;
+                    background-color: #fff;
+                    opacity: 1;
                     border-radius: 50%;
+                    margin: 0 5px; 
+                    transition: background-color 0.3s ease;
+                    cursor: pointer;
                 }
 
                 .swiper-pagination-bullet-active {
-                    background-color: #D94540 !important;
+                    background-color: #D94540;
                 }
             }
         }
@@ -125,7 +128,6 @@
     }
 }
 
-
 @media screen and (max-width: 900px) {
     .main-1 {
         padding: 20px 20px 0;
@@ -155,6 +157,7 @@
     }
 }
 
+// ИСПРАВЛЕНИЕ: Полностью переработанная мобильная версия
 @media screen and (max-width: 600px) {
     .main-1 {
         padding: 14px 10px 0;
@@ -166,22 +169,11 @@
                 border-radius: 5px;
                 height: 320px;
                 order: 1;
+                
+                // УБРАЛИ ПРАВИЛО КОТОРОЕ СКРЫВАЕТ СЛАЙДЫ
                 .swiper-wrapper {
-                    transform: none !important;
-                    display: block;
-                    height: 320px;
-
                     .swiper-slide {
-                        display: none;
-                    }
-                    .swiper-slide:first-child {
                         padding: 20px;
-                        display: flex;
-                        height: 320px;
-                        background-image: url("/assets/img/image (1).png") !important;
-                        background-size: cover;
-                        background-position: center;
-                        
                         .main-heading {
                             font-size: 18px;
                         }
@@ -190,12 +182,18 @@
                             padding: 8px 6.5px;
                         }
                     }
-                    .two {
-                        display: none;
-                    }
                 }
+
+                // ОСТАВИЛИ ВИДИМЫМИ ЭЛЕМЕНТЫ УПРАВЛЕНИЯ
                 .viewing {
-                    display: none;
+                    left: 20px;
+                    right: 20px;
+                    bottom: 20px;
+                    
+                    .swiper-pagination-bullet {
+                        width: 8px;
+                        height: 8px;
+                    }
                 }
             }
 
@@ -233,4 +231,12 @@
             }
         }
     }
+}
+
+.swiper-slide {
+    pointer-events: none;
+}
+
+.swiper-slide-active {
+    pointer-events: auto;
 }

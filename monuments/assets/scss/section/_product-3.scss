@@ -1,60 +1,73 @@
 .product-3 {
     padding: 100px 40px 0;
-    .product-3-heading {
+
+    &-heading {
         margin: 0;
         font-size: 20px;
         font-weight: 700;
         padding-bottom: 40px;
     }
+
     .block-swiper {
         display: flex;
         position: relative;
+        align-items: center;
 
-        align-items: center; 
-
-        .btn-left, .btn-right { 
+        .btn-left, .btn-right {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
             z-index: 10;
             cursor: pointer;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            border-radius: 0;
             display: flex;
             align-items: center;
             justify-content: center;
+        }
 
-            &:hover {
-                background-color: #e0e0e0;
-            }
-        }
         .btn-left {
-            left: -20px; 
+            left: -35px;
         }
+
         .btn-right {
-            right: -20px; 
+            right: -35px;
+        }
+
+        .swiper-button-prev::after,
+        .swiper-button-next::after {
+            display: none; 
+        }
+
+
+        .swiper-button-disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            pointer-events: none;
+            
+            img {
+                filter: grayscale(100%);
+            }
         }
 
         .swiper {
             width: 100%;
-            overflow: hidden; 
-        }
-        
-        .slide-swiper {
-            display: flex;
-            transition: transform 0.5s ease-in-out; 
-            gap: 40px; 
+            overflow: hidden;
         }
 
-
-        .slide {
-            
-            flex: 0 0 calc(20% - 32px); 
+        .swiper-slide {
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
+        }
 
+        .slide {
             img {
                 max-width: 100%;
                 height: auto;
+                display: block;
             }
 
             h3 {
@@ -69,22 +82,53 @@
                 padding-bottom: 15px;
                 
                 .price {
-                font-weight: 700;
-                font-size: 20px;
-                margin: 0;
-            }
+                    font-weight: 700;
+                    font-size: 20px;
+                    margin: 0;
+                }
 
-            .old-price {
-                text-decoration: line-through;
-                font-size: 14px;
-                opacity: 30%;
-                margin: 0;
+                .old-price {
+                    text-decoration: line-through;
+                    font-size: 14px;
+                    opacity: 30%;
+                    margin: 0;
+                }
             }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .product-3 {
+        padding: 60px 10px 0;
+    }
+
+    .block-swiper {
+        .btn-left, .btn-right {
+            display: none !important;
+        }
+        .swiper {
+            .slide {
+                h3 {
+                    padding: 5px 0 10px;
+                    font-size: 14px;
+                    font-weight: 600;
+                }
+                .price-block {
+                    align-items: center;
+                    .price {
+                        font-size: 16px;
+                    }
+                    .old-price {
+                        font-size: 10px;
+                    }
+                }
+                .btn-basic {
+                    font-size: 12px;
+                    padding: 11px 11.5px;
+                    white-space: nowrap;
+                }
             }
-
-            
-
-            
         }
     }
 }

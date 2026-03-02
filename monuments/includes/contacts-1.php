@@ -23,6 +23,6 @@
         </div>
     </div>
     <div class="block-two">
-        <img src="assets/img/2025-12-11_11-00-05 1.png">
+        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Ae10ac4addcf773690a32f36851d502d4f3685b07a88d5f92fcfe023eda80c21d&amp;source=constructor" width="800" height="240" frameborder="0"></iframe>
     </div>
 </section>

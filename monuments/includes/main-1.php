@@ -3,7 +3,7 @@
         <div class="swiper mySwiper">
 
             <div class="swiper-wrapper">
-                
+
                 <div class="swiper-slide" style="background-image: url('assets/img/image.png')">
                     <h1 class="main-heading">Производство и реализация<br> качественных ритуальных<br> изделий</h1>
                     <button class="btn-basic">Перейти в каталог</button>
@@ -19,7 +19,7 @@
                     <button class="btn-basic">Перейти в каталог</button>
                 </div>
 
-            </div> 
+            </div>
 
             <div class="viewing">
                 <div class="btn-left swiper-button-prev">

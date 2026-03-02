@@ -27,39 +27,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Карусель - свайпер для главной страницы (после header)
 document.addEventListener('DOMContentLoaded', function () {
+    const swiperContainer = document.querySelector('.mySwiper');
+    if (!swiperContainer) return;
+
     const swiper = new Swiper('.mySwiper', {
-        loop: true,
-
-        effect: 'fade',
-        fadeEffect: {
-            crossFade: true,
-        },
-
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-
-        pagination: {
-            el: '.swiper-pagination',
+    effect: 'fade',
+    fadeEffect: {
+        crossFade: true,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+        el: '.mySwiper .swiper-pagination',
             clickable: true,
-        },
-
-        on: {
-            init() {
-                const bg = this.slides[this.activeIndex].dataset.bg;
-                if (bg) {
-                    this.el.style.backgroundImage = `url(${bg})`;
-                }
-            },
-            slideChange() {
-                const bg = this.slides[this.activeIndex].dataset.bg;
-                if (bg) {
-                    this.el.style.backgroundImage = `url(${bg})`;
-                }
-            }
-        }
-    });
+    },
+});
 });
 
 
@@ -134,20 +118,26 @@ document.addEventListener("DOMContentLoaded", () => {
 // Этапы работы - раскрытие этапов
 
 document.addEventListener("DOMContentLoaded", () => {
-    const buttons = document.querySelectorAll(".btn-arrow");
     const blocks = document.querySelectorAll(".block");
 
-    buttons.forEach(button => {
-        button.addEventListener("click", (e) => {
-            e.stopPropagation();
+    blocks.forEach(block => {
+        block.addEventListener("click", (e) => {
+            if (e.target.closest('.block-content')) {
+                return;
+            }
 
-            const currentBlock = button.closest(".block");
+            const currentBlock = e.currentTarget; 
             const isActive = currentBlock.classList.contains("active");
 
-            blocks.forEach(block => block.classList.remove("active"));
-
+            blocks.forEach(otherBlock => {
+                if (otherBlock !== currentBlock) {
+                    otherBlock.classList.remove("active");
+                }
+            });
             if (!isActive) {
                 currentBlock.classList.add("active");
+            } else {
+                currentBlock.classList.remove("active");
             }
         });
     });
@@ -180,7 +170,8 @@ document.addEventListener('DOMContentLoaded', function() {
         },
 
         pagination: {
-            el: '.swiper-pagination', 
+            el: '.mySwiper .swiper-pagination',
+            clickable: true,
         },
         
         on: {
@@ -377,69 +368,28 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-
+// Свайпер для товаров - под карточкой товаров
 
 document.addEventListener('DOMContentLoaded', function () {
-    const track = document.querySelector('.slide-swiper');
-    const btnPrev = document.querySelector('.btn-left');
-    const btnNext = document.querySelector('.btn-right');
+    const swiper = new Swiper('.product-swiper', {
+        slidesPerView: 2,
+        spaceBetween: 20,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
 
-    const slidesToShow = 5; 
-    let currentIndex = 0;
-
-    function moveCarousel(direction) {
-        const slides = document.querySelectorAll('.slide');
-        const totalSlides = slides.length;
-        const maxIndex = totalSlides - slidesToShow;
-
-        currentIndex += direction;
-
-        if (currentIndex < 0) {
-            currentIndex = 0;
+        breakpoints: {
+            900: {
+                slidesPerView: 4,
+                spaceBetween: 30,
+            },
+            1200: {
+                slidesPerView: 5,
+                spaceBetween: 40,
+            },
         }
-        if (currentIndex > maxIndex) {
-            currentIndex = maxIndex;
-        }
-
-        const slideGap = 40; 
-        const slideWidth = slides[0].offsetWidth + slideGap;
-        const offset = currentIndex * slideWidth;
-
-        track.style.transform = `translateX(-${offset}px)`;
-        updateButtons();
-    }
-
-    function updateButtons() {
-        const slides = document.querySelectorAll('.slide');
-        const totalSlides = slides.length;
-        const maxIndex = totalSlides - slidesToShow;
-
-        if (currentIndex === 0) {
-            btnPrev.style.opacity = '0.5';
-            btnPrev.style.cursor = 'not-allowed';
-            btnPrev.disabled = true;
-        } else {
-            btnPrev.style.opacity = '1';
-            btnPrev.style.cursor = 'pointer';
-            btnPrev.disabled = false;
-        }
-
-        if (currentIndex >= maxIndex) {
-            btnNext.style.opacity = '0.5';
-            btnNext.style.cursor = 'not-allowed';
-            btnNext.disabled = true;
-        } else {
-            btnNext.style.opacity = '1';
-            btnNext.style.cursor = 'pointer';
-            btnNext.disabled = false;
-        }
-    }
-
-    btnNext.addEventListener('click', () => moveCarousel(1));
-    btnPrev.addEventListener('click', () => moveCarousel(-1));
-
-    // Инициализация
-    updateButtons();
+    });
 });
 
 
@@ -715,27 +665,22 @@ function showNotification(message) {
 // popap блок
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Находим все нужные элементы
     const orderButton = document.querySelector('.making .btn-basic'); // Кнопка "Оформить заказ"
-    const popup = document.querySelector('.popap'); // Сам попап
-    // ИЗМЕНЕНИЕ: Ищем родительский блок .close
+    const popup = document.querySelector('.popap');
     const closeButtonContainer = popup.querySelector('.close'); 
     const mainPageButton = popup.querySelector('.btn-main-popap'); // Кнопка "На главную"
     const body = document.body;
 
-    // Функция для открытия попапа
     function openPopup() {
         popup.classList.add('popup-visible');
         body.classList.add('body-no-scroll');
     }
 
-    // Функция для закрытия попапа
     function closePopup() {
         popup.classList.remove('popup-visible');
         body.classList.remove('body-no-scroll');
     }
 
-    // 1. Открытие попапа по клику на "Оформить заказ"
     if (orderButton) {
         orderButton.addEventListener('click', function(event) {
             event.preventDefault();
@@ -743,21 +688,39 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // 2. Закрытие попапа по клику на блок .close
     if (closeButtonContainer) {
         closeButtonContainer.addEventListener('click', closePopup);
     }
 
-    // 3. Закрытие по клику на "На главную"
     if (mainPageButton) {
         mainPageButton.addEventListener('click', closePopup);
     }
 
-    // 4. Закрытие по клику на темный фон
     popup.addEventListener('click', function(event) {
-        // Убедимся, что клик был именно по фону, а не по содержимому
         if (event.target === popup.querySelector('.popap-overlay')) {
             closePopup();
         }
+    });
+});
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const productImages = document.querySelectorAll('.img-product');
+
+    productImages.forEach(image => {
+        image.addEventListener('click', () => {
+
+            const productId = image.dataset.productId; 
+
+            if (productId) {
+                
+                window.location.href = `product.php?id=${productId}`;
+            } else {
+                window.location.href = 'product.php';
+            }
+        });
     });
 });

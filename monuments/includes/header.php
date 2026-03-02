@@ -80,7 +80,7 @@
                 <a href="reviews.php">Отзывы</a>
                 <a href="contacts.php">Контакты</a>
                 <a href="catalog.php">Каталог</a>
-                <a href="#" class="gray">Памятники из гранита</a>
+                <a href="granite.php" class="gray">Памятники из гранита</a>
                 <a href="#" class="gray">Памятники из мрамора</a>
                 <a href="#" class="gray">Оградки на могилу</a>
                 <a href="#" class="gray">Семейные памятники из мрамора</a>
