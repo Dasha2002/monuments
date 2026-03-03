@@ -2,13 +2,10 @@
     <h2 class="main-7-heading">Галерея с производства</h2>
     <div class="main-7-gallery">
         <div class="gallery-viewport">
-            <!-- Основной контейнер Swiper. Добавляем класс .swiper -->
             <div class="swiper gallery-swiper">
-                <!-- Обертка для слайдов. Добавляем класс .swiper-wrapper и оставляем ваш .gallery-track -->
                 <div class="swiper-wrapper gallery-track">
                     
                     <!-- СЛАЙД 1 -->
-                    <!-- Каждый слайд теперь имеет .swiper-slide и ваш .gallery-slide -->
                     <div class="swiper-slide gallery-slide">
                         <div class="row one">
                             <img src="assets/img/2025-12-02_15-02-59 2.png">
@@ -68,7 +65,7 @@
         
         <div class="btn-arrow">
             <div class="swiper-pagination"></div>
-            <!-- Добавляем ID для легкого доступа из JS -->
+            
             <div class="btn one-left" id="gallery-prev">
                 <button class="arrow left"><img src="assets/img/gravity-ui_arrow-left (1).svg"></button>
             </div>

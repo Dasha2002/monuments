@@ -47,6 +47,9 @@
         font-weight: 600;
         max-width: 160px;
       }
+      .hidden {
+        display: none;
+      }
 
       .catalog-link {
         margin-top: auto;
@@ -102,6 +105,9 @@
           object-fit: none; 
         }
       }
+      .img-7 {
+        margin-bottom: 20px;
+      }
     }
   }
 }
@@ -138,7 +144,7 @@
             display: grid;
             grid-template-columns: 1fr auto; 
             grid-template-rows: 1fr;
-            height: 70px;       
+            height: 90px;       
             padding: 15px;
 
             .text {
@@ -149,10 +155,17 @@
               .heading-catalog {
                 font-size: 14px;
                 font-weight: 600;
+                line-height: 100%;
+              }
+              .hidden {
+                display: block;
+                font-size: 14px;
+                font-weight: 600;
+                line-height: 100%;
               }
 
               .catalog-link {
-                margin-top: auto;       
+                margin-bottom: 5px;       
                 display: flex;
                 align-items: center;
                 gap: 5px;

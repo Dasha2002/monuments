@@ -53,9 +53,9 @@
 
             <form>
                 <div class="input-block">
-                    <input id="name" type="name" placeholder="Имя" required>
-                    <input id="phone" type="tel" placeholder="Телефон" required>
-                    <textarea placeholder="Коментарий к заказу"></textarea>
+                    <input id="username" type="name" placeholder="Имя" required autocomplete="name">
+                    <input id="userphone" type="tel" placeholder="Телефон" required autocomplete="tel">
+                    <textarea placeholder="Коментарий к заказу" id="comments" autocomplete="off"></textarea>
                 </div>
                 <div class="checkbox">
                     <h3>Выберите удобный способ связи</h3>

@@ -833,6 +833,9 @@ button, input {
   font-weight: 600;
   max-width: 160px;
 }
+.main-2 .block-main-2 .block .hidden {
+  display: none;
+}
 .main-2 .block-main-2 .block .catalog-link {
   margin-top: auto;
   display: flex;
@@ -879,6 +882,9 @@ button, input {
   max-width: none;
   object-fit: none;
 }
+.main-2 .block-main-2 .block.two .img-7 {
+  margin-bottom: 20px;
+}
 
 @media (max-width: 900px) {
   .main-2 {
@@ -909,7 +915,7 @@ button, input {
     display: grid;
     grid-template-columns: 1fr auto;
     grid-template-rows: 1fr;
-    height: 70px;
+    height: 90px;
     padding: 15px;
   }
   .main-2 .block-main-2 .main-2-catalog .block-catalog .block .text {
@@ -920,9 +926,16 @@ button, input {
   .main-2 .block-main-2 .main-2-catalog .block-catalog .block .text .heading-catalog {
     font-size: 14px;
     font-weight: 600;
+    line-height: 100%;
+  }
+  .main-2 .block-main-2 .main-2-catalog .block-catalog .block .text .hidden {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 100%;
   }
   .main-2 .block-main-2 .main-2-catalog .block-catalog .block .text .catalog-link {
-    margin-top: auto;
+    margin-bottom: 5px;
     display: flex;
     align-items: center;
     gap: 5px;
@@ -1715,8 +1728,11 @@ button, input {
 .main-7-gallery .gallery-track {
   display: flex;
 }
+.main-7-gallery .swiper-slide {
+  overflow: hidden;
+}
 .main-7-gallery .gallery-slide {
-  min-width: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -1731,6 +1747,7 @@ button, input {
   height: 100%;
   object-fit: cover;
   border-radius: 8px;
+  padding: 0;
 }
 .main-7-gallery .gallery-slide .row:first-of-type img {
   width: calc(16.666% - 17px);
@@ -1747,23 +1764,26 @@ button, input {
   padding-bottom: 20px;
   gap: 10px;
 }
-.main-7-gallery .btn-arrow .dots {
+.main-7-gallery .btn-arrow .swiper-pagination {
   position: absolute;
-  left: 50%;
+  left: 100%;
+  bottom: 34px;
   transform: translateX(-50%);
   display: flex;
   gap: 8px;
 }
-.main-7-gallery .btn-arrow .dot {
-  width: 10px;
-  height: 10px;
+.main-7-gallery .btn-arrow .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   border: 1px solid #D94540;
   background: white;
   transition: background-color 0.3s ease;
   cursor: pointer;
+  margin: 0;
+  opacity: 1;
 }
-.main-7-gallery .btn-arrow .dot.active, .main-7-gallery .btn-arrow .dot.swiper-pagination-bullet-active {
+.main-7-gallery .btn-arrow .swiper-pagination-bullet-active {
   background: #D94540;
 }
 .main-7-gallery .btn-arrow .btn {
@@ -1774,13 +1794,13 @@ button, input {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-.main-7-gallery .btn-arrow .btn:hover:not(.disabled) {
+.main-7-gallery .btn-arrow .btn:hover:not(.swiper-button-disabled) {
   background: #D94540;
 }
-.main-7-gallery .btn-arrow .btn:hover:not(.disabled) .arrow img {
+.main-7-gallery .btn-arrow .btn:hover:not(.swiper-button-disabled) .arrow img {
   filter: brightness(0) invert(1);
 }
-.main-7-gallery .btn-arrow .btn.disabled {
+.main-7-gallery .btn-arrow .btn.swiper-button-disabled {
   border-color: rgba(217, 69, 64, 0.6);
   pointer-events: none;
   opacity: 0.6;
@@ -1815,7 +1835,11 @@ button, input {
 }
 @media (max-width: 500px) {
   .main-7 {
-    padding: 50px 20px 0 20px;
+    padding: 60px 10px 0;
+  }
+  .main-7 .main-7-heading {
+    font-size: 16px;
+    padding-bottom: 15px;
   }
   .main-7-gallery .btn-arrow {
     display: none !important;
@@ -1824,23 +1848,31 @@ button, input {
     display: block;
     transform: none !important;
   }
+  .main-7-gallery .swiper-slide {
+    overflow: visible;
+  }
   .main-7-gallery .gallery-slide {
-    display: block;
+    width: auto;
     min-width: auto;
+    margin-bottom: 10px;
+    gap: 10px !important;
   }
   .main-7-gallery .gallery-slide:not(:first-of-type) {
     display: none;
   }
   .main-7-gallery .gallery-slide:first-of-type .row {
-    display: block;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
     height: auto;
   }
   .main-7-gallery .gallery-slide:first-of-type .row img {
     display: block;
     width: 100% !important;
-    height: 250px;
-    margin-bottom: 15px;
-    border-radius: 8px;
+    height: 190px;
+    margin-bottom: 0;
+    border-radius: 5px;
+    object-fit: cover;
   }
 }
 .main-8 {
@@ -1857,22 +1889,12 @@ button, input {
   width: 1360px;
   max-width: 100%;
   margin: 0 auto;
-  overflow: hidden;
-}
-.main-8 .reviews-track {
-  display: grid !important;
-  grid-auto-columns: 440px;
-  grid-auto-flow: column;
-  grid-template-rows: 1fr 1fr;
-  gap: 20px;
-  width: max-content;
-  transition: transform 0.5s ease-in-out;
 }
 .main-8 .btn-arrow-main-8 {
   position: relative;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
+  justify-content: flex-end;
   padding-top: 20px;
   padding-bottom: 20px;
   gap: 10px;
@@ -1881,21 +1903,24 @@ button, input {
 }
 .main-8 .btn-arrow-main-8 .dots {
   position: absolute;
-  left: 50%;
+  left: 100%;
+  bottom: 34px;
   transform: translateX(-50%);
   display: flex;
-  gap: 8px;
+  gap: 5px;
 }
-.main-8 .btn-arrow-main-8 .dot {
-  width: 10px;
-  height: 10px;
+.main-8 .btn-arrow-main-8 .dots .dot {
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   border: 1px solid #D94540;
   background: white;
   transition: background-color 0.3s ease;
   cursor: pointer;
+  opacity: 1;
+  margin: 0;
 }
-.main-8 .btn-arrow-main-8 .dot.active {
+.main-8 .btn-arrow-main-8 .dots .swiper-pagination-bullet-active {
   background: #D94540;
 }
 .main-8 .btn-arrow-main-8 .btn {
@@ -2124,7 +2149,7 @@ button, input {
   align-items: center;
 }
 .main-10 .main-10-block .block-text {
-  height: 250px;
+  height: 330px;
   background: linear-gradient(164.32deg, #FCFCFC 0.74%, #F2F2F2 99.04%);
   border-radius: 20px;
   padding: 40px;
@@ -2134,7 +2159,7 @@ button, input {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 100px;
+  padding-bottom: 60px;
   gap: 100px;
 }
 .main-10 .main-10-block .block-text .block-one h2 {

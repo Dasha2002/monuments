@@ -90,7 +90,7 @@
                 <!--Седьмой блок-->
                 <div class="block two">
                     <div class="text">
-                        <h3 class="heading-catalog"></h3>
+                        <h3 class="heading-catalog hidden">Вазы и лампады</h3>
                         <a class="catalog-link" href="#">
                             <div class="number">20</div>
                             <p>Подробнее</p>

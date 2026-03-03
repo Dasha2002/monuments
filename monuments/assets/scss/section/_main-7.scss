@@ -11,20 +11,23 @@
 
     &-gallery {
         position: relative;
-        overflow: hidden;
+        overflow: hidden; 
 
         .gallery-viewport {
             width: 100%;
+            overflow: hidden; 
+        }
+
+        
+        .gallery-track {
+            display: flex;
+        }
+        .swiper-slide {
             overflow: hidden;
         }
 
-        // Убираем transition, так как Swiper управляет им сам
-        .gallery-track {
-            display: flex; // Это свойство теперь нужно для .swiper-wrapper
-        }
-
         .gallery-slide {
-            min-width: 100%;
+            width: 100%; 
             display: flex;
             flex-direction: column;
             gap: 20px;
@@ -41,6 +44,7 @@
                     height: 100%;
                     object-fit: cover;
                     border-radius: 8px;
+                    padding: 0;
                 }
 
                 &:first-of-type img {
@@ -62,28 +66,32 @@
             padding-bottom: 20px;
             gap: 10px;
 
-            .dots {
+            .swiper-pagination {
                 position: absolute;
-                left: 50%;
+                left: 100%;
+                bottom: 34px;
                 transform: translateX(-50%);
                 display: flex;
                 gap: 8px;
             }
 
-            .dot {
-                width: 10px;
-                height: 10px;
+            .swiper-pagination-bullet {
+                width: 12px;
+                height: 12px;
                 border-radius: 50%;
                 border: 1px solid #D94540;
                 background: white;
                 transition: background-color 0.3s ease;
                 cursor: pointer;
-
-                // Класс active будет управляться JS, как и раньше
-                &.active, &.swiper-pagination-bullet-active { // Добавляем класс Swiper для надежности
-                    background: #D94540;
-                }
+                margin: 0; 
+                opacity: 1;
             }
+
+
+            .swiper-pagination-bullet-active {
+                background: #D94540;
+            }
+
 
             .btn {
                 padding: 8px 28px;
@@ -93,16 +101,16 @@
                 cursor: pointer;
                 transition: all 0.3s ease;
 
-                &:hover:not(.disabled) {
+                &:hover:not(.swiper-button-disabled) {
                     background: #D94540;
                     .arrow img {
-                        filter: brightness(0) invert(1);
+                        filter: brightness(0) invert(1); 
                     }
                 }
 
-                &.disabled {
-                    border-color: #D9454099;
-                    pointer-events: none;
+                &.swiper-button-disabled {
+                    border-color: #D9454099; 
+                    pointer-events: none; 
                     opacity: 0.6;
                     cursor: not-allowed;
                 }
@@ -125,8 +133,6 @@
         cursor: pointer;
     }
 }
-
-// --- Медиа-запросы ---
 
 @media (max-width: 900px) {
     .main-7 {
@@ -155,43 +161,55 @@
 
 @media (max-width: 500px) {
     .main-7 {
-        padding: 50px 20px 0 20px; 
-
+        padding: 60px 10px 0; 
+        .main-7-heading {
+            font-size: 16px;
+            padding-bottom: 15px;
+        }
         &-gallery {
             .btn-arrow {
                 display: none !important;
             }
 
-            // Swiper не будет работать на мобильных, поэтому стили остаются прежними
             .gallery-track {
                 display: block;
                 transform: none !important; 
             }
 
+            .swiper-slide {
+                overflow: visible;
+                
+            }
+
             .gallery-slide {
-                display: block; 
+                width: auto; 
                 min-width: auto; 
+                margin-bottom: 10px;
+                gap: 10px !important;
 
                 &:not(:first-of-type) {
-                    display: none;
+                    display: none; 
                 }
+                
             }
 
             .gallery-slide:first-of-type {
                 .row {
-                    display: block; 
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    gap: 10px; 
                     height: auto; 
 
                     img {
                         display: block; 
                         width: 100% !important; 
-                        height: 250px; 
-                        margin-bottom: 15px; 
-                        border-radius: 8px;
+                        height: 190px; 
+                        margin-bottom: 0; 
+                        border-radius: 5px; 
+                        object-fit: cover;
                     }
                 }
             }
         }
     }
 }
-

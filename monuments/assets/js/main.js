@@ -229,91 +229,42 @@ document.addEventListener('DOMContentLoaded', function() {
 // свайпер для отзывов
 
 document.addEventListener('DOMContentLoaded', function() {
-    const track = document.querySelector('.reviews-track');
-    const reviews = document.querySelectorAll('.review');
-    const dots = document.querySelectorAll('.btn-arrow-main-8 .dot');
-    const leftBtn = document.querySelector('.btn-arrow-main-8 .one-left');
-    const rightBtn = document.querySelector('.btn-arrow-main-8 .arrow.right').parentElement;
-    const moreReviewsBtn = document.querySelector('.btn-basic');
 
-    const isDesktop = window.innerWidth > 500;
+    const isMobile = window.innerWidth <= 500;
+    if (isMobile) return;
 
-    if (isDesktop) {
-        if (!track || reviews.length === 0 || !leftBtn || !rightBtn) {
-            console.error("Ошибка: не найдены необходимые элементы для слайдера.");
-            return;
+    const rows = 2;
+    const reviews = document.querySelectorAll('.main-8 .review');
+    const totalColumns = Math.ceil(reviews.length / rows);
+
+    const swiper = new Swiper('.main-8-swiper', {
+
+        slidesPerView: 3,
+        spaceBetween: 20,
+        speed: 500,
+        loop: false,
+        allowTouchMove: true,
+
+        grid: {
+            rows: 2,
+            fill: 'row'
+        },
+
+        navigation: {
+            nextEl: '.main-8 .right-btn-container',
+            prevEl: '.main-8 .one-left',
+        },
+
+        pagination: {
+            el: '.main-8 .dots',
+            clickable: true,
+            renderBullet: function (index, className) {
+                return `<span class="dot ${className}"></span>`;
+            }
         }
 
-        const reviewWidth = 440;
-        const gap = 20;
-        const visibleColumns = 3;
-        const rows = 2;
+    });
 
-        const slideDistance = reviewWidth + gap;
-        const totalReviews = reviews.length;
-        const columnsCount = Math.ceil(totalReviews / rows);
-        const maxSlide = Math.max(0, columnsCount - visibleColumns);
-        let currentSlide = 0;
-
-        function updateSlider() {
-            track.style.transform = `translateX(-${currentSlide * slideDistance}px)`;
-            dots.forEach((dot, index) => {
-                if (index < columnsCount) {
-                    dot.style.display = 'block';
-                    dot.classList.toggle('active', index === currentSlide);
-                } else {
-                    dot.style.display = 'none';
-                }
-            });
-
-            leftBtn.classList.toggle('disabled', currentSlide === 0);
-            rightBtn.classList.toggle('disabled', currentSlide >= maxSlide);
-        }
-
-        rightBtn.addEventListener('click', () => {
-            if (currentSlide < maxSlide) {
-                currentSlide++;
-                updateSlider();
-            }
-        });
-
-        leftBtn.addEventListener('click', () => {
-            if (currentSlide > 0) {
-                currentSlide--;
-                updateSlider();
-            }
-        });
-
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                if (index <= maxSlide) {
-                    currentSlide = index;
-                    updateSlider();
-                }
-            });
-        });
-
-        updateSlider();
-
-    } else {
-        if (!track || !moreReviewsBtn) {
-            console.error("Ошибка: не найдены элементы для мобильной версии.");
-            return;
-        }
-
-        moreReviewsBtn.addEventListener('click', () => {
-            const isShowingAll = track.classList.contains('show-all-reviews');
-
-            if (isShowingAll) {
-                track.classList.remove('show-all-reviews');
-                moreReviewsBtn.textContent = 'Больше отзывов';
-                track.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            } else {
-                track.classList.add('show-all-reviews');
-                moreReviewsBtn.textContent = 'Скрыть отзывы';
-            }
-        });
-    }
 });
 
 
@@ -349,7 +300,7 @@ document.addEventListener("DOMContentLoaded", function () {
             swiper: thumbsSwiper
         },
         pagination: {
-            el: ".mobile-pagination",
+            el: '.main-8-swiper .swiper-pagination',
             clickable: true,
         },
 
@@ -399,70 +350,46 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    const statusDropdown = document.querySelector('.status');
-    const toggleButton = statusDropdown.querySelector('.dropdown-toggle');
-    const activText = statusDropdown.querySelector('.activ');
-    const menu = statusDropdown.querySelector('.dropdown-menu');
-    const menuItems = menu.querySelectorAll('a');
-
-    function toggleMenu() {
-        const isOpen = statusDropdown.classList.contains('is-active');
-        
-        if (isOpen) {
-            statusDropdown.classList.remove('is-active');
-            toggleButton.setAttribute('aria-expanded', 'false');
-        } else {
-            statusDropdown.classList.add('is-active');
-            toggleButton.setAttribute('aria-expanded', 'true');
-        }
-    }
-
-    
-    statusDropdown.addEventListener('click', function(event) {
-
-        if (event.target.closest('.dropdown-toggle') || event.target === activText) {
-            event.preventDefault(); 
-            toggleMenu();
-        }
-    });
-
-    menuItems.forEach(item => {
-        item.addEventListener('click', function(event) {
-            event.preventDefault(); 
-            
-            const selectedText = this.textContent; 
-            activText.textContent = selectedText; 
-            
-            toggleMenu(); 
-        });
-    });
-
-    document.addEventListener('click', function(event) {
-        if (!statusDropdown.contains(event.target)) {
-            statusDropdown.classList.remove('is-active');
-            toggleButton.setAttribute('aria-expanded', 'false');
-        }
-    });
-});
-
-
-
+    // Работа с кнопкой фильтра
     const filterButton = document.querySelector('.btn-filter');
-
- 
+    
     if (filterButton) {
-
         filterButton.addEventListener('click', function() {
-
             this.classList.toggle('active');
+            
+            // Если нужно показывать/скрывать блок фильтров
+            const filterBlock = document.querySelector('.filter-two');
+            if (filterBlock) {
+                filterBlock.classList.toggle('active');
+            }
         });
     }
-
-
-
-document.addEventListener("DOMContentLoaded", () => {
-    initCart();
-    initCatalog();
+    
+    // Работа с кнопками сортировки
+    const sortButtons = document.querySelectorAll('.filter-two > div');
+    
+    sortButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Удаляем класс active у всех кнопок
+            sortButtons.forEach(btn => btn.classList.remove('active'));
+            // Добавляем класс active к нажатой кнопке
+            this.classList.add('active');
+            
+            // Здесь можно добавить логику сортировки товаров
+            const sortType = this.classList.contains('default') ? 'default' :
+                           this.classList.contains('popular') ? 'popular' :
+                           this.classList.contains('inexpensive') ? 'inexpensive' :
+                           this.classList.contains('expensive') ? 'expensive' : 'default';
+            
+            console.log('Выбран тип сортировки:', sortType);
+            // Здесь можно вызвать функцию сортировки товаров
+            // sortProducts(sortType);
+        });
+    });
+    
+    // Инициализация корзины и каталога
+    if (typeof initCart === 'function') initCart();
+    if (typeof initCatalog === 'function') initCatalog();
 });
 
 
@@ -665,42 +592,53 @@ function showNotification(message) {
 // popap блок
 
 document.addEventListener('DOMContentLoaded', function() {
-    const orderButton = document.querySelector('.making .btn-basic'); // Кнопка "Оформить заказ"
     const popup = document.querySelector('.popap');
-    const closeButtonContainer = popup.querySelector('.close'); 
-    const mainPageButton = popup.querySelector('.btn-main-popap'); // Кнопка "На главную"
-    const body = document.body;
 
-    function openPopup() {
-        popup.classList.add('popup-visible');
-        body.classList.add('body-no-scroll');
-    }
+    if (popup) {
+        const body = document.querySelector('body'); 
+        const orderButton = document.querySelector('.making .btn-basic'); 
+        const closeButtonContainer = popup.querySelector('.close'); 
+        const mainPageButton = popup.querySelector('.btn-main-popap'); 
+        const overlay = popup.querySelector('.popap-overlay');
 
-    function closePopup() {
-        popup.classList.remove('popup-visible');
-        body.classList.remove('body-no-scroll');
-    }
-
-    if (orderButton) {
-        orderButton.addEventListener('click', function(event) {
-            event.preventDefault();
-            openPopup();
-        });
-    }
-
-    if (closeButtonContainer) {
-        closeButtonContainer.addEventListener('click', closePopup);
-    }
-
-    if (mainPageButton) {
-        mainPageButton.addEventListener('click', closePopup);
-    }
-
-    popup.addEventListener('click', function(event) {
-        if (event.target === popup.querySelector('.popap-overlay')) {
-            closePopup();
+        function openPopup() {
+            if (body) {
+                popup.classList.add('popup-visible');
+                body.classList.add('body-no-scroll');
+            }
         }
-    });
+
+        function closePopup() {
+            if (body) {
+                popup.classList.remove('popup-visible');
+                body.classList.remove('body-no-scroll');
+            }
+        }
+
+        if (orderButton) {
+            orderButton.addEventListener('click', function(event) {
+                event.preventDefault();
+                openPopup();
+            });
+        }
+
+        if (closeButtonContainer) {
+            closeButtonContainer.addEventListener('click', closePopup);
+        }
+
+        if (mainPageButton) {
+            mainPageButton.addEventListener('click', closePopup);
+        }
+
+        if (overlay) {
+            overlay.addEventListener('click', function(event) {
+                if (event.target === overlay) {
+                    closePopup();
+                }
+            });
+        }
+    } else {
+    }
 });
 
 
